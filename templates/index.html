@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+
+    <!-- ✅ CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="page-bg">
+
+<div class="app-container">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="logo">
+            <a href="/index" class="logo-link">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo-img">
+                <span class="logo-text">RelieFood</span>
+            </a>
+        </div>
+        <div class="menu" onclick="toggleMenu()">☰
+            <div class="dropdown" id="dropdownMenu">
+                <a href="/index">Home</a>
+                <a href="/generate">Generate</a>
+                <a href="/infographic">Infographics</a>
+                <a href="/storage">Storage Tips</a>
+                <a href="/portion">Portion Calculator</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ MAIN CONTENT (STANDARDIZED like infographic) -->
+    <div class="main-content hero-section">
+
+        <!-- TAG -->
+        <div class="tag">Supporting UN SDG 12</div>
+
+        <!-- TITLE -->
+        <h2 class="hero-title">
+            Transform Your Leftovers Into Delicious Meals
+        </h2>
+
+        <!-- TEXT -->
+        <p>
+            Stop wasting food. Start creating amazing recipes with what you already have in your kitchen.
+        </p>
+
+        <!-- IMAGE -->
+        <img src="{{ url_for('static', filename='images/food.png') }}" class="hero-image">
+
+        <!-- BUTTONS -->
+        <div class="button-container">
+            <div class="index-btn">
+                <a href="/generate">
+                    <button class="primary-btn">Start Generating Recipes →</button>
+                </a>
+            </div>
+            <div class="index-btn">
+                <a href="/infographic">
+                    <button class="outline-btn">Learn More</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("dropdownMenu");
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+
+window.onclick = function(event) {
+    if (!event.target.closest('.menu')) {
+        document.getElementById("dropdownMenu").style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>

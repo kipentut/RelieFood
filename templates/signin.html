@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign In</title>
+
+    <!-- ✅ CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="page-bg">
+
+<div class="app-container">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="logo">
+            <a href="/index" class="logo-link">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo-img">
+                <span class="logo-text">RelieFood</span>
+            </a>
+        </div>
+        <div class="menu" onclick="toggleMenu()">☰
+            <div class="dropdown" id="dropdownMenu">
+                <a href="/index">Home</a>
+                <a href="/generate">Generate</a>
+                <a href="/infographic">Infographics</a>
+                <a href="/storage">Storage Tips</a>
+                <a href="/portion">Portion Calculator</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ MAIN CONTENT -->
+    <div class="main-content">
+
+        <!-- ✅ TAB HEADER -->
+        <div class="tab-header">
+            <button class="tab active">Sign In</button>
+            <button class="tab">Sign Up</button>
+        </div>
+
+        <!-- ✅ FORM CARD -->
+        <div class="form-card">
+
+            <!-- ✅ LOGO ICON -->
+            <div class="form-logo">
+                {{ url_for('static', filename='images/logo.png') }} class="form-logo-img">
+            </div>
+
+            <!-- ✅ TITLE -->
+            <h2 class="center">Welcome Back</h2>
+
+            <p class="center subtitle">
+                Continue your sustainable cooking journey
+            </p>
+
+            <!-- ✅ EMAIL -->
+            <label>Email Address</label>
+            <input type="text" placeholder="Enter your email">
+
+            <!-- ✅ PASSWORD -->
+            <label>Password</label>
+            <input type="password" placeholder="Enter your password">
+
+            <!-- ✅ FORGOT PASSWORD -->
+            <p class="forgot">Forgot Password?</p>
+
+            <!-- ✅ SIGN IN BUTTON -->
+            /index
+                <button class="primary-btn">Sign In</button>
+            </a>
+
+            <!-- ✅ SOCIAL BUTTONS -->
+            <button class="social-btn google">
+                Continue with Google
+            </button>
+
+            <button class="social-btn facebook">
+                Continue with Facebook
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("dropdownMenu");
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+
+window.onclick = function(event) {
+    if (!event.target.closest('.menu')) {
+        document.getElementById("dropdownMenu").style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Waste</title>
+
+    <!-- ✅ CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="page-bg">
+
+<div class="app-container">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="logo">
+            <a href="/index" class="logo-link">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo-img">
+                <span class="logo-text">RelieFood</span>
+            </a>
+        </div>
+        <div class="menu" onclick="toggleMenu()">☰
+            <div class="dropdown" id="dropdownMenu">
+                <a href="/index">Home</a>
+                <a href="/generate">Generate</a>
+                <a href="/infographic">Infographics</a>
+                <a href="/storage">Storage Tips</a>
+                <a href="/portion">Portion Calculator</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ MAIN CONTENT (STANDARDIZED) -->
+    <div class="main-content">
+
+        <!-- TITLE -->
+        <h2>Common Wasted Foods in the Philippines</h2>
+
+        <!-- IMAGE -->
+        <img src="{{ url_for('static', filename='images/foodwaste.png') }}" class="app-image">
+
+        <!-- DESCRIPTION -->
+        <p>
+            Studies analyzing household plate waste in the Philippines have identified
+            specific food items that are most frequently wasted:
+        </p>
+
+        <!-- RICE CARD -->
+        <div class="info-card">
+            <div class="icon-box">🍚</div>
+            <div class="text-box">
+                <h3>Rice</h3>
+                <p>
+                    Accounts for a significant portion of household food waste due to over-preparation.
+                </p>
+            </div>
+        </div>
+
+        <!-- VEGETABLE CARD -->
+        <div class="info-card">
+            <div class="icon-box">🥬</div>
+            <div class="text-box">
+                <h3>Vegetables</h3>
+                <p>
+                    Often spoil before use due to forgotten storage or lack of meal planning.
+                </p>
+            </div>
+        </div>
+
+        <!-- MEAT CARD -->
+        <div class="info-card">
+            <div class="icon-box">🍖</div>
+            <div class="text-box">
+                <h3>Meat</h3>
+                <p>
+                    Partially used meat products remain unused after meal preparation.
+                </p>
+            </div>
+        </div>
+
+        <!-- SOURCE -->
+        <p class="source">
+            Source: Angeles-Agdeppa et al., 2023
+        </p>
+
+    </div>
+</div>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("dropdownMenu");
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+
+window.onclick = function(event) {
+    if (!event.target.closest('.menu')) {
+        document.getElementById("dropdownMenu").style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>

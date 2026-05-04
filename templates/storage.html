@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Storage Tips</title>
+
+    <!-- ✅ CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="page-bg">
+
+<div class="app-container">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="logo">
+            <a href="/index" class="logo-link">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo-img">
+                <span class="logo-text">RelieFood</span>
+            </a>
+        </div>
+        <div class="menu" onclick="toggleMenu()">☰
+            <div class="dropdown" id="dropdownMenu">
+                <a href="/index">Home</a>
+                <a href="/generate">Generate</a>
+                <a href="/infographic">Infographics</a>
+                <a href="/storage">Storage Tips</a>
+                <a href="/portion">Portion Calculator</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ MAIN CONTENT -->
+    <div class="main-content">
+
+        <!-- TITLE -->
+        <h2 class="center">Food Storage & Management Tips</h2>
+
+        <!-- DESCRIPTION -->
+        <p class="center">
+            Learn how to properly store ingredients to maximize freshness and minimize waste.
+        </p>
+
+        <!-- IMAGE -->
+        <img src="{{ url_for('static', filename='images/cook.png') }}" class="app-image">
+
+        <!-- BUTTON CARDS -->
+        <div class="tip-card light-green" onclick="toggleTip('rice')">
+            <span>🍚 Rice Storage</span>
+            <span>▼</span>
+        </div>
+        <div class="tip-content" id="rice">
+            Store rice in airtight containers and keep it in a cool, dry place.
+        </div>
+
+        <div class="tip-card green" onclick="toggleTip('vegetable')">
+            <span>🥬 Vegetable Storage</span>
+            <span>▼</span>
+        </div>
+        <div class="tip-content" id="vegetable">
+           Refrigerate leafy vegetables and keep them dry to avoid spoilage.
+        </div>
+
+        <div class="tip-card red" onclick="toggleTip('meat')">
+         <span>🍖 Meat Storage</span>
+         <span>▼</span>
+        </div>
+        <div class="tip-content" id="meat">
+         Store meat in the freezer if not used immediately. Keep it sealed properly.
+        </div>
+
+        <div class="tip-card yellow" onclick="toggleTip('general')">
+         <span>📦 General Food Waste Prevention Tips</span>
+         <span>▼</span>
+        </div>
+        <div class="tip-content" id="general">
+            Plan meals, check expiration dates, and store food correctly.
+        </div>
+    </div>
+
+</div>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("dropdownMenu");
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+window.onclick = function(event) {
+    if (!event.target.closest('.menu')) {
+        document.getElementById("dropdownMenu").style.display = "none";
+    }
+}
+function toggleTip(id) {
+    const content = document.getElementById(id);
+    content.classList.toggle("show");
+}
+</script>
+
+</body>
+</html>

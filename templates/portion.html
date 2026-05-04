@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portion Calculator</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="logo">
+            <a href="/index" class="logo-link">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo-img">
+                <span class="logo-text">RelieFood</span>
+            </a>
+        </div>
+        <div class="menu" onclick="toggleMenu()">☰
+            <div class="dropdown" id="dropdownMenu">
+                <a href="/index">Home</a>
+                <a href="/generate">Generate</a>
+                <a href="/infographic">Infographics</a>
+                <a href="/storage">Storage Tips</a>
+                <a href="/portion">Portion Calculator</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+        <h2 class="center">Portion Size Calculator</h2>
+
+        <p class="center">
+            Get an estimate of your recommended food portion per meal.
+        </p>
+
+        <div class="form-card">
+
+            <input type="number" id="age" placeholder="Age">
+            <input type="text" id="sex" placeholder="Sex (male/female)">
+            <input type="number" id="height" placeholder="Height (cm)">
+            <input type="number" id="weight" placeholder="Weight (kg)">
+
+            <button class="primary-btn" onclick="calculatePortion()">
+                Calculate Portion
+            </button>
+
+            <div id="portionOutput"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("dropdownMenu");
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+}
+
+window.onclick = function(event) {
+    if (!event.target.closest('.menu')) {
+        document.getElementById("dropdownMenu").style.display = "none";
+    }
+}
+
+async function calculatePortion() {
+    const age = document.getElementById("age").value;
+    const sex = document.getElementById("sex").value;
+    const height = document.getElementById("height").value;
+    const weight = document.getElementById("weight").value;
+
+    const res = await fetch("/calculate_portion", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ age, sex, height, weight })
+    });
+
+    const data = await res.json();
+
+    document.getElementById("portionOutput").innerHTML = `
+        <p><b>Estimated Calories:</b> ${data.calories} kcal/day</p>
+        <p><b>Recommended Portion:</b> ${data.portion} servings</p>
+    `;
+}
+</script>
+
+</body>
+</html>
