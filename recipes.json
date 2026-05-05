@@ -253,5 +253,43 @@
 
 {"title":"Fish Vegetable Rice Plate","ingredients":["fish","vegetable","rice"],"steps":["Cook fish and vegetables.","Serve over rice.","Mix gently.","Serve warm."]},
 
-{"title":"Shrimp Vegetable Rice Plate","ingredients":["shrimp","vegetable","rice"],"steps":["Cook shrimp and vegetables.","Serve over rice.","Mix evenly.","Serve hot."]}
+{"title":"Shrimp Vegetable Rice Plate","ingredients":["shrimp","vegetable","rice"],"steps":["Cook shrimp and vegetables.","Serve over rice.","Mix evenly.","Serve hot."]},
+
+{"title":"Spicy Crab Stir Rice","ingredients":["crab","rice","oil","salt"],"steps":["Cook crab until fully done and remove the meat from the shell carefully.","Heat oil in a pan and add the crab meat to sauté briefly.","Add cooked rice and mix thoroughly while breaking clumps.","Continue stirring while seasoning lightly until everything is evenly heated before serving."]},
+
+{"title":"Squid Fried Rice","ingredients":["squid","rice","oil","salt"],"steps":["Clean the squid properly by removing the innards and slicing into rings.","Cook squid in oil briefly until it becomes firm but not rubbery.","Add rice and break apart clumps while mixing with squid.","Continue cooking while stirring until evenly heated before serving hot."]},
+
+{"title":"Garlic Squid Stir Fry","ingredients":["squid","garlic","oil","salt"],"steps":["Heat oil and sauté garlic until aromatic and lightly browned.","Add sliced squid and cook quickly while stirring continuously.","Allow squid to cook until just firm without overcooking.","Season lightly and serve immediately while hot."]},
+
+{"title":"Crab Vegetable Stir Fry","ingredients":["crab","vegetable","oil"],"steps":["Cook crab and carefully extract the meat from the shell.","Heat oil in a pan and sauté vegetables until slightly tender.","Add crab meat and mix thoroughly with vegetables.","Cook briefly until evenly combined before serving hot."]},
+
+{"title":"Squid Vegetable Rice Bowl","ingredients":["squid","vegetable","rice"],"steps":["Clean and slice squid into manageable pieces.","Cook squid quickly in a pan until just firm.","Cook vegetables separately until slightly tender.","Combine both over rice and serve immediately while warm."]},
+
+{"title":"Crab Egg Scramble","ingredients":["crab","eggs","oil"],"steps":["Cook crab and remove the meat from the shell.","Beat eggs thoroughly and heat oil in a pan.","Add crab meat and pour eggs over while stirring gently.","Cook until eggs are fully set and serve immediately."]},
+
+{"title":"Squid Egg Rice","ingredients":["squid","eggs","rice","oil"],"steps":["Cook squid quickly in oil until tender.","Remove squid and scramble eggs in the same pan.","Add rice and mix thoroughly while breaking clumps.","Return squid and cook briefly before serving warm."]},
+
+{"title":"Seafood Mix Rice Bowl","ingredients":["crab","squid","rice"],"steps":["Cook crab and squid separately until fully done.","Extract crab meat carefully and slice squid into pieces.","Combine both seafood with hot rice.","Mix gently and serve immediately while warm."]},
+
+{"title":"Grilled Squid Rice Bowl","ingredients":["squid","rice","salt"],"steps":["Clean squid and lightly season with salt.","Grill over medium heat until cooked through but not rubbery.","Slice into pieces and serve over rice.","Serve while hot for best texture."]},
+
+{"title":"Crab Garlic Butter Rice","ingredients":["crab","rice","garlic","butter"],"steps":["Boil crab and remove meat from shell carefully.","Melt butter and sauté garlic until fragrant.","Add crab meat and cook briefly before mixing in rice.","Stir thoroughly until heated evenly before serving."]},
+
+{"title":"Squid Rice Stir Fry Deluxe","ingredients":["squid","rice","garlic","oil"],"steps":["Sauté garlic in oil until fragrant.","Add sliced squid and cook briefly until just firm.","Add rice and mix thoroughly, breaking clumps evenly.","Cook until heated through before serving hot."]},
+
+{"title":"Crab Rice Omelette","ingredients":["crab","rice","eggs"],"steps":["Cook crab and extract meat.","Beat eggs and pour into a pan to form an omelette base.","Add rice and crab meat inside the omelette.","Fold carefully and cook until eggs are fully set before serving."]},
+
+{"title":"Squid Vegetable Stir Fry","ingredients":["squid","vegetable","oil"],"steps":["Cook squid quickly until firm and set aside.","Sauté vegetables in oil until slightly tender.","Combine squid with vegetables and mix evenly.","Cook briefly and serve while hot."]},
+
+{"title":"Crab Rice Stir Fry","ingredients":["crab","rice","oil"],"steps":["Cook crab and remove meat from shell.","Heat oil and add crab meat.","Add rice and mix thoroughly, breaking apart clumps.","Cook evenly and serve hot."]},
+
+{"title":"Squid Garlic Rice Bowl","ingredients":["squid","rice","garlic","oil"],"steps":["Sauté garlic in oil until aromatic.","Add squid and cook quickly until just firm.","Mix in rice and break clumps evenly.","Cook until heated through before serving."]},
+
+{"title":"Crab Vegetable Rice Bowl","ingredients":["crab","rice","vegetable"],"steps":["Cook crab and extract meat carefully.","Prepare vegetables by sautéing lightly.","Serve vegetables and crab over rice.","Mix gently and serve warm."]},
+
+{"title":"Squid Soup Simple","ingredients":["squid","water","salt"],"steps":["Bring water to a gentle boil in a pot.","Add cleaned squid and simmer gently.","Cook until squid becomes tender without overcooking.","Season lightly and serve warm."]},
+
+{"title":"Crab Soup Simple","ingredients":["crab","water","salt"],"steps":["Boil crab in water until fully cooked.","Allow broth to develop flavor slowly.","Remove crab and serve broth with meat separately.","Serve warm."]},
+
+{"title":"Mixed Seafood Rice Deluxe","ingredients":["crab","squid","shrimp","rice"],"steps":["Cook each seafood ingredient separately until fully done.","Prepare rice and keep warm.","Combine all seafood over rice evenly.","Mix gently before serving hot."]}
 ]
