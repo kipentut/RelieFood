@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sign In</title>
+    <title>Sign Up</title>
 
     <!-- ✅ CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
@@ -35,10 +35,10 @@
 
         <!-- ✅ TAB HEADER -->
         <div class="tab-header">
-            <button class="tab active">Sign In</button>
-            <a href="/signup">
-                <button class="tab">Sign Up</button>
+            <a href="/signin_page">
+                <button class="tab">Sign In</button>
             </a>
+            <button class="tab active">Sign Up</button>
         </div>
 
         <!-- ✅ FORM CARD -->
@@ -50,24 +50,29 @@
             </div>
 
             <!-- ✅ TITLE -->
-            <h2 class="center">Welcome Back</h2>
+            <h2 class="center">Create Account</h2>
 
             <p class="center subtitle">
-                Continue your sustainable cooking journey
+                Join RelieFood and start your sustainable cooking journey
             </p>
 
-            <!-- ✅ PASSWORD -->
-            <form method="POST" action="/signin">
+            <!-- ✅ SIGNUP FORM -->
+            <form method="POST" action="/signup">
                 <label>Email Address</label>
                 <input type="email" name="email" placeholder="Enter your email" required>
 
                 <label>Password</label>
                 <input type="password" name="password" placeholder="Enter your password" required>
 
-                <p class="forgot"><a href="/forgot-password">Forgot Password?</a></p>
+                <label>Confirm Password</label>
+                <input type="password" name="confirm_password" placeholder="Confirm your password" required>
 
-                <button type="submit" class="primary-btn">Sign In</button>
+                <button type="submit" class="primary-btn">Sign Up</button>
             </form>
+
+            <p class="center switch-form">
+                Already have an account? <a href="/signin_page">Sign In</a>
+            </p>
 
         </div>
 

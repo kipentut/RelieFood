@@ -185,6 +185,84 @@ input {
     border-radius: 12px;
 }
 
+/* =========================================================
+   📄 SIGNUP
+========================================================= */
+
+/* Tabs (shared with signin) */
+.tab-header {
+    display: flex;
+    background: #e5e5e5;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.tab {
+    flex: 1;
+    padding: 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+}
+
+.tab.active {
+    background: #2e9f6b;
+    color: white;
+}
+
+/* Signup form card */
+.signup-card {
+    background: #f2f2f2;
+    padding: 18px;
+    border-radius: 15px;
+    margin-top: 15px;
+}
+
+/* Title + subtitle */
+.signup-card h2 {
+    text-align: center;
+    margin-bottom: 8px;
+    color: #2e9f6b;
+}
+
+.signup-card p.subtitle {
+    text-align: center;
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Inputs */
+.signup-card input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+/* Button */
+.signup-card .primary-btn {
+    background: #2e9f6b;
+    color: white;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Switch link */
+.switch-form {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+.switch-form a {
+    color: #2e9f6b;
+    text-decoration: none;
+    font-weight: bold;
+}
 
 /* =========================================================
    📄 SIGNIN
@@ -217,10 +295,9 @@ input {
 }
 
 .form-logo-img {
-    width: 65px;
-    height: 65px;
-    background: #2e9f6b;
-    padding: 10px;
+    width: 100px;
+    height: 100px;
+    background: #ffffff;
     border-radius: 15px;
 }
 
@@ -229,7 +306,6 @@ input {
     font-size: 12px;
     color: #2e9f6b;
 }
-
 
 /* =========================================================
    📄 GENERATE PAGE ✅ UPDATED
