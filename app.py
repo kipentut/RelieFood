@@ -1,8 +1,13 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, session, url_for
 import json
 import random
 
 app = Flask(__name__)
+app.secret_key = "supersecretkey"   # required for session handling
+
+# ---------- TEMPORARY USER STORE ----------
+# Keys = email, Values = password
+USERS = {}
 
 # ---------- LOAD DATA ----------
 def load_recipes():
@@ -18,11 +23,8 @@ IGNORE_INGREDIENTS = {
 # ---------- NORMALIZE WORD ----------
 def normalize(word):
     word = word.lower().strip()
-
-    # ✅ singular/plural handling
     if word.endswith("s"):
         word = word[:-1]
-
     return word
 
 # ---------- USER INPUT ----------
@@ -36,21 +38,13 @@ def find_recipes(user_input):
     user_set = get_user_set(user_input)
 
     results = []
-
     for item in recipes:
         ingredient_set = set(normalize(ing) for ing in item["ingredients"])
 
-        # ✅ remove pantry ingredients
-        essential = [
-            ing for ing in ingredient_set
-            if ing not in IGNORE_INGREDIENTS
-        ]
-
-        # ✅ skip bad entries
+        essential = [ing for ing in ingredient_set if ing not in IGNORE_INGREDIENTS]
         if not essential:
             continue
 
-        # ✅ strict matching
         if all(ing in user_set for ing in essential):
             results.append(item)
 
@@ -62,7 +56,6 @@ def get_random_recipe():
 
 # ---------- AI FALLBACK (PLACEHOLDER) ----------
 def generate_ai_recipe(user_input):
-    # ⚠️ simple placeholder version (no API yet)
     return {
         "title": "AI Generated Recipe",
         "ingredients": user_input.split(", "),
@@ -75,11 +68,52 @@ def generate_ai_recipe(user_input):
         "note": "This recipe is AI-generated and may not guarantee taste or accuracy."
     }
 
+# ---------- SIGNUP ----------
+@app.route("/signup", methods=["POST"])
+def signup():
+    email = request.form.get("email")
+    password = request.form.get("password")
+    confirm_password = request.form.get("confirm_password")
+
+    if email in USERS:
+        return "User already exists", 400
+
+    if password != confirm_password:
+        return "Passwords do not match", 400
+
+    USERS[email] = password
+    session["user"] = email
+    return redirect(url_for("index"))
+
+# ---------- SIGNIN ----------
+@app.route("/signin", methods=["POST"])
+def signin():
+    email = request.form.get("email")
+    password = request.form.get("password")
+
+    if email in USERS and USERS[email] == password:
+        session["user"] = email
+        return redirect(url_for("index"))
+    else:
+        return "Invalid email or password", 401
+
+@app.route("/signin_page")
+def signin_page():
+    return render_template("signin.html")
+
+@app.route("/logout")
+def logout():
+    session.pop("user", None)
+    return redirect(url_for("signin_page"))
+
 # ---------- ROUTES ----------
 @app.route("/")
-@app.route("/signin")
-def signin():
-    return render_template("signin.html")
+def home():
+    return redirect(url_for("signin_page"))
+
+@app.route("/signup")
+def signup_page():
+    return render_template("signup.html")
 
 @app.route("/index")
 def index():
@@ -107,26 +141,15 @@ def generate_recipe():
     data = request.get_json()
     ingredients = data.get("ingredients", "").strip()
 
-    # ✅ enforce Add button logic
     if not ingredients:
         return jsonify([])
 
     results = find_recipes(ingredients)
-
-    # ✅ if database has match: return titles
     if results:
-        return jsonify([
-            {"title": r["title"]}
-            for r in results
-        ])
+        return jsonify([{"title": r["title"]} for r in results])
 
-    # ✅ if no match: fallback to AI
     ai_recipe = generate_ai_recipe(ingredients)
-
-    return jsonify([{
-        "title": ai_recipe["title"],
-        "ai": True
-    }])
+    return jsonify([{"title": ai_recipe["title"], "ai": True}])
 
 # ---------- API: DETAILS ----------
 @app.route("/recipe_details", methods=["POST"])
@@ -136,20 +159,16 @@ def recipe_details():
     ingredients = data.get("ingredients", "")
 
     recipes = load_recipes()
-
-    # ✅ check database first
     for r in recipes:
         if r["title"] == title:
             return jsonify(r)
 
-    # ✅ fallback AI recipe
     return jsonify(generate_ai_recipe(ingredients))
 
 # ---------- API: RANDOM ----------
 @app.route("/random_recipe")
 def random_recipe():
     recipe = get_random_recipe()
-
     return jsonify({
         "title": recipe["title"],
         "ingredients": recipe["ingredients"],
@@ -163,38 +182,26 @@ def calculate_portion(age, sex, height, weight):
         height = float(height)
         weight = float(weight)
 
-        # ✅ Basic calorie estimation (general only)
         if sex.lower() == "male":
             calories = 10 * weight + 6.25 * height - 5 * age + 5
         else:
             calories = 10 * weight + 6.25 * height - 5 * age - 161
 
-        # ✅ convert calories → portion estimate
-        portions = round(calories / 600, 1)   # ~600 kcal per meal (general)
-
-        return {
-            "calories": round(calories),
-            "portion": portions
-        }
-
+        portions = round(calories / 600, 1)
+        return {"calories": round(calories), "portion": portions}
     except:
-        return {
-            "calories": 0,
-            "portion": 0
-        }
+        return {"calories": 0, "portion": 0}
 
 # ---------- API: PORTION ----------
 @app.route("/calculate_portion", methods=["POST"])
-def calculate_portion_api():   # ✅ renamed
+def calculate_portion_api():
     data = request.get_json()
-
     result = calculate_portion(
         data.get("age"),
         data.get("sex"),
         data.get("height"),
         data.get("weight")
     )
-
     return jsonify(result)
 
 # ---------- RUN ----------
