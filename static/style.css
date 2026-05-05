@@ -1,6 +1,4 @@
-/* =========================================================
-   📱 GLOBAL / COMMON STYLES (ALL PAGES)
-========================================================= */
+/* ================================== COMMON STYLES ================================= */
 
 /* ---------- RESET / BODY ---------- */
 body {
@@ -23,16 +21,16 @@ body {
     flex-direction: column;
 }
 
-/* NAVBAR */
+/* ---------- NAVBAR ---------- */
 .navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;   /* ✅ aligns everything */
+    align-items: center;
     background: #FFFFFF;
     padding: 14px 18px;
 }
 
-/* LOGO LINK (IMPORTANT) */
+/* ---------- LOGO ---------- */
 .logo-link {
     display: flex;
     align-items: center;
@@ -40,14 +38,12 @@ body {
     text-decoration: none;
 }
 
-/* IMAGE */
 .logo-img {
     width: 32px;
     height: 32px;
     object-fit: contain;
 }
 
-/* TEXT */
 .logo-text {
     font-weight: bold;
     color: #2e9f6b;
@@ -88,7 +84,7 @@ body {
     padding: 20px;
 }
 
-/* TEXT */
+/* ---------- TEXT ---------- */
 .main-content h2 {
     font-size: 22px;
     margin-bottom: 12px;
@@ -100,7 +96,7 @@ body {
     margin-bottom: 12px;
 }
 
-/* IMAGE */
+/* ---------- IMAGE ---------- */
 .app-image {
     width: 100%;
     height: 200px;
@@ -137,7 +133,7 @@ button {
     color: white;
 }
 
-/* ---------- FORM ---------- */
+/* ---------- FORM INPUTS ---------- */
 input {
     width: 100%;
     padding: 12px;
@@ -146,7 +142,7 @@ input {
     margin-top: 10px;
 }
 
-/* ---------- CARD ---------- */
+/* ---------- CARDS ---------- */
 .form-card,
 .output-card {
     background: #f2f2f2;
@@ -155,16 +151,19 @@ input {
     margin-top: 15px;
 }
 
-/* ---------- CENTER ---------- */
+/* ---------- UTILITY ---------- */
 .center {
     text-align: center;
 }
 
+/* ---------- GLOBAL FIX ---------- */
+* {
+    box-sizing: border-box;
+}
 
-/* =========================================================
-   📄 INDEX
-========================================================= */
+/* ================================== INDEX PAGE STYLES ================================= */
 
+/* ---------- HERO SECTION ---------- */
 .hero-section {
     background: linear-gradient(to bottom right, #0f7a4c, #179b5c);
     color: white;
@@ -185,11 +184,9 @@ input {
     border-radius: 12px;
 }
 
-/* =========================================================
-   📄 SIGNUP
-========================================================= */
+/* ================================== SIGNUP PAGE STYLES ================================= */
 
-/* Tabs (shared with signin) */
+/* ---------- TABS ---------- */
 .tab-header {
     display: flex;
     background: #e5e5e5;
@@ -212,7 +209,7 @@ input {
     color: white;
 }
 
-/* Signup form card */
+/* ---------- SIGNUP CARD ---------- */
 .signup-card {
     background: #f2f2f2;
     padding: 18px;
@@ -220,7 +217,6 @@ input {
     margin-top: 15px;
 }
 
-/* Title + subtitle */
 .signup-card h2 {
     text-align: center;
     margin-bottom: 8px;
@@ -234,7 +230,6 @@ input {
     margin-bottom: 15px;
 }
 
-/* Inputs */
 .signup-card input {
     width: 100%;
     padding: 12px;
@@ -243,7 +238,6 @@ input {
     margin-top: 10px;
 }
 
-/* Button */
 .signup-card .primary-btn {
     background: #2e9f6b;
     color: white;
@@ -251,7 +245,6 @@ input {
     margin-top: 15px;
 }
 
-/* Switch link */
 .switch-form {
     text-align: center;
     font-size: 13px;
@@ -264,31 +257,9 @@ input {
     font-weight: bold;
 }
 
-/* =========================================================
-   📄 SIGNIN
-========================================================= */
+/* ================================== SIGNIN PAGE STYLES ================================= */
 
-.tab-header {
-    display: flex;
-    background: #e5e5e5;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-.tab {
-    flex: 1;
-    padding: 12px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.tab.active {
-    background: #2e9f6b;
-    color: white;
-}
-
+/* ---------- FORM LOGO ---------- */
 .form-logo {
     text-align: center;
     margin-bottom: 12px;
@@ -307,26 +278,26 @@ input {
     color: #2e9f6b;
 }
 
-/* =========================================================
-   📄 GENERATE PAGE ✅ UPDATED
-========================================================= */
+/* ================================== GENERATE PAGE STYLES ================================= */
 
+/* ---------- INPUT ROW ---------- */
 .input-row {
     display: flex;
     gap: 10px;
 }
 
+/* ---------- ADD BUTTON ---------- */
 .add-btn {
     width: 50px;
     background: #2e9f6b;
     color: white;
 }
 
+/* ---------- OUTPUT ---------- */
 .no-recipe {
     color: #555;
 }
 
-/* ✅ RECIPE LIST */
 .recipe-title {
     background: #e6e6e6;
     padding: 12px;
@@ -340,7 +311,6 @@ input {
     background: #dcdcdc;
 }
 
-/* ✅ FULL RECIPE VIEW */
 .output-card h3 {
     margin-top: 0;
 }
@@ -353,6 +323,7 @@ input {
     margin-bottom: 6px;
 }
 
+/* ---------- PORTION OUTPUT ---------- */
 #portionOutput {
     margin-top: 10px;
     font-size: 14px;
@@ -368,15 +339,9 @@ input {
     overflow: hidden;
 }
 
-* {
-    box-sizing: border-box;
-}
+/* ================================== INFOGRAPHIC PAGE STYLES ================================= */
 
-
-/* =========================================================
-   📄 INFOGRAPHICS
-========================================================= */
-
+/* ---------- INFO CARDS ---------- */
 .info-card {
     display: flex;
     gap: 12px;
@@ -399,11 +364,9 @@ input {
     margin-top: 10px;
 }
 
+/* ================================== STORAGE PAGE STYLES ================================= */
 
-/* =========================================================
-   📄 STORAGE
-========================================================= */
-
+/* ---------- STORAGE CARDS ---------- */
 .tip-card {
     display: flex;
     justify-content: space-between;
@@ -415,13 +378,12 @@ input {
     cursor: pointer;
 }
 
-/* COLORS */
 .light-green { background: #9bd33b; }
 .green { background: #2e9f6b; }
 .red { background: #c63b3b; }
 .yellow { background: #d4af37; }
 
-/* DROPDOWN */
+/* ---------- EXPANDABLE CONTENT ---------- */
 .tip-content {
     display: none;
     background: white;

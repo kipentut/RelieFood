@@ -2,8 +2,6 @@
 <html>
 <head>
     <title>Generate</title>
-
-    <!-- ✅ CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
@@ -203,7 +201,7 @@ async function randomRecipe() {
     document.getElementById("output").innerHTML = html;
 }
 
-/* ✅ PORTION CALCULATOR */
+/* PORTION CALCULATOR */
 async function calculatePortion() {
     const age = document.getElementById("age").value;
     const sex = document.getElementById("sex").value;

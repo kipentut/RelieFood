@@ -2,8 +2,6 @@
 <html>
 <head>
     <title>Sign In</title>
-
-    <!-- ✅ CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
@@ -30,10 +28,10 @@
         </div>
     </div>
 
-    <!-- ✅ MAIN CONTENT -->
+    <!-- MAIN CONTENT -->
     <div class="main-content">
 
-        <!-- ✅ TAB HEADER -->
+        <!-- TAB HEADER -->
         <div class="tab-header">
             <button class="tab active">Sign In</button>
             <a href="/signup">
@@ -41,22 +39,22 @@
             </a>
         </div>
 
-        <!-- ✅ FORM CARD -->
+        <!-- FORM CARD -->
         <div class="form-card">
 
-            <!-- ✅ LOGO ICON -->
+            <!-- LOGO ICON -->
             <div class="form-logo">
                 <img src="{{ url_for('static', filename='images/logo.png') }}" class="form-logo-img">
             </div>
 
-            <!-- ✅ TITLE -->
+            <!-- TITLE -->
             <h2 class="center">Welcome Back</h2>
 
             <p class="center subtitle">
                 Continue your sustainable cooking journey
             </p>
 
-            <!-- ✅ PASSWORD -->
+            <!-- PASSWORD -->
             <form method="POST" action="/signin">
                 <label>Email Address</label>
                 <input type="email" name="email" placeholder="Enter your email" required>
