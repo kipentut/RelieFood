@@ -3,6 +3,7 @@
 <head>
     <title>Generate</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body class="page-bg">
@@ -74,6 +75,7 @@
 
 <script>
 let ingredientsReady = false;
+let lastResults = [];
 
 /* MENU */
 function toggleMenu() {
@@ -112,6 +114,8 @@ async function generateRecipes() {
 
     const ingredients = document.getElementById("ingredients").value;
 
+    document.getElementById("output").innerHTML = "Generating recipes...";
+
     const res = await fetch("/generate_recipe", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
@@ -126,11 +130,13 @@ async function generateRecipes() {
         return;
     }
 
+    lastResults = data;
+
     let html = "<p><b>Select a Recipe:</b></p>";
 
-    data.forEach(item => {
+    data.forEach((item, index) => {
         html += `
-            <div class="recipe-title" onclick="loadRecipe('${item.title}')">
+            <div class="recipe-title" onclick="loadRecipe(${index})">
                 ${item.title}
             </div>
         `;
@@ -140,15 +146,32 @@ async function generateRecipes() {
 }
 
 /* LOAD RECIPE */
-async function loadRecipe(title) {
+async function loadRecipe(index) {
+
+    let item = lastResults[index];
+
+    // AI-GENERATED RECIPE
+    if (item.ai) {
+        displayRecipe(item.full);
+        return;
+    }
+
+    // JSON-BASED RECIPE
     const res = await fetch("/recipe_details", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({ title })
+        body: JSON.stringify({
+            title: item.title,
+            ingredients: document.getElementById("ingredients").value
+        })
     });
 
     const recipe = await res.json();
+    displayRecipe(recipe);
+}
 
+/* DISPLAY FUNCTION */
+function displayRecipe(recipe) {
     let html = `
         <h3>${recipe.title}</h3>
         <p><b>Ingredients:</b></p>
@@ -172,55 +195,14 @@ async function loadRecipe(title) {
 
 /* RANDOM RECIPE */
 async function randomRecipe() {
-    if (!ingredientsReady) {
-        alert("Click the + button first.");
-        return;
-    }
+    document.getElementById("output").innerHTML = "Loading random recipe...";
 
     const res = await fetch("/random_recipe");
     const recipe = await res.json();
 
-    let html = `
-        <h3>${recipe.title}</h3>
-        <p><b>Ingredients:</b></p>
-        <ul>
-    `;
-
-    recipe.ingredients.forEach(item => {
-        html += `<li>${item}</li>`;
-    });
-
-    html += "</ul><p><b>Instructions:</b></p><ol>";
-
-    recipe.steps.forEach(step => {
-        html += `<li>${step}</li>`;
-    });
-
-    html += "</ol>";
-
-    document.getElementById("output").innerHTML = html;
+    displayRecipe(recipe);
 }
 
-/* PORTION CALCULATOR */
-async function calculatePortion() {
-    const age = document.getElementById("age").value;
-    const sex = document.getElementById("sex").value;
-    const height = document.getElementById("height").value;
-    const weight = document.getElementById("weight").value;
-
-    const res = await fetch("/calculate_portion", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({ age, sex, height, weight })
-    });
-
-    const data = await res.json();
-
-    document.getElementById("portionOutput").innerHTML = `
-        <p><b>Estimated Calories:</b> ${data.calories} kcal/day</p>
-        <p><b>Recommended Portion:</b> ${data.portion} servings</p>
-    `;
-}
 </script>
 
 </body>
