@@ -1,13 +1,17 @@
 from flask import Flask, render_template, request, jsonify, redirect, session, url_for
 import json
 import random
+import os
+from dotenv import load_dotenv
 from google import genai
 
 app = Flask(__name__)
 app.secret_key = "supersecretkey"
+load_dotenv()
 
 # ✅ GEMINI CLIENT (FIXED)
-client = genai.Client(api_key="AIzaSyBdSZeKgalmkMlTpM9IbeTBm8_vWF4r7aY")
+API_KEY = os.getenv("GOOGLE_API_KEY")
+client = genai.Client(api_key=API_KEY)
 
 # ---------- TEMPORARY USER STORE ----------
 USERS = {}
@@ -53,7 +57,7 @@ def find_recipes(user_input):
         for ing in item["ingredients"]:
             words = ing.lower().split()
             for w in words:
-                if w.isalpha() and w not in IGNORE_INGREDIENTS:
+                if w.isalpha():
                     ingredient_set.add(normalize(w))
 
         essential = [ing for ing in ingredient_set if ing not in IGNORE_INGREDIENTS]
