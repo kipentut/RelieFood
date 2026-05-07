@@ -57,14 +57,17 @@ def find_recipes(user_input):
         for ing in item["ingredients"]:
             words = ing.lower().split()
             for w in words:
-                if w.isalpha():
-                    ingredient_set.add(normalize(w))
+                # ✅ FIXED CLEANING
+                clean_word = w.strip(",().")
+                if clean_word:
+                    ingredient_set.add(normalize(clean_word))
 
         essential = [ing for ing in ingredient_set if ing not in IGNORE_INGREDIENTS]
 
         matches = sum(1 for ing in essential if ing in user_set)
 
-        if matches >= 2:
+        # ✅ already fixed
+        if matches >= 1:
             results.append((matches, item))
 
     results.sort(reverse=True, key=lambda x: x[0])

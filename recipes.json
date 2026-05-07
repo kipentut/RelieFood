@@ -871,5 +871,2452 @@
     "Return all seafood to the pan and mix evenly.",
     "Season lightly and cook for 2-3 minutes until fully heated before serving hot."
   ]
+},
+{
+  "title": "Chicken Tinola with Lemongrass",
+  "ingredients": [
+    "2 cups chicken pieces",
+    "1 stalk lemongrass, chopped",
+    "1 knob ginger, sliced",
+    "2 cloves garlic, minced",
+    "1 onion, chopped",
+    "1 cup green papaya, sliced",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil in a pot and sauté garlic, onion, ginger, and lemongrass until fragrant.",
+    "Add chicken and cook until lightly browned.",
+    "Pour in water and simmer for 20 minutes until chicken is tender.",
+    "Add papaya and cook until soft.",
+    "Season lightly and serve hot."
+  ]
+},
+{
+  "title": "Shrimp in Coconut Milk",
+  "ingredients": [
+    "1 cup shrimp, peeled",
+    "1 cup coconut milk",
+    "2 cloves garlic, minced",
+    "1 onion, chopped",
+    "2 chili peppers",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Sauté garlic and onion until fragrant.",
+    "Add shrimp and cook until pink.",
+    "Pour in coconut milk and simmer gently.",
+    "Add chili peppers and season lightly.",
+    "Serve hot with rice."
+  ]
+},
+{
+  "title": "Pork Sinigang with Kamias",
+  "ingredients": [
+    "2 cups pork, sliced",
+    "1 cup kamias",
+    "1 onion, quartered",
+    "2 tomatoes, sliced",
+    "1 cup kangkong",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Boil pork with onion and tomatoes until tender.",
+    "Add kamias and simmer to develop sour flavor.",
+    "Add kangkong leaves.",
+    "Season lightly and serve hot."
+  ]
+},
+{
+  "title": "Grilled Milkfish with Calamansi",
+  "ingredients": [
+    "1 whole milkfish",
+    "3 tablespoons calamansi juice",
+    "2 cloves garlic, minced",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Marinate milkfish in calamansi juice, garlic, and salt.",
+    "Grill over medium heat until fully cooked.",
+    "Turn occasionally for even cooking.",
+    "Serve hot with rice."
+  ]
+},
+{
+  "title": "Beef with Tomato Stir Fry",
+  "ingredients": [
+    "2 cups beef slices",
+    "2 tomatoes, chopped",
+    "2 cloves garlic, minced",
+    "1 onion, chopped",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil and sauté garlic and onion.",
+    "Add beef and cook until browned.",
+    "Stir in tomatoes and cook until softened.",
+    "Season lightly and serve hot."
+  ]
+},
+{
+  "title": "Sauteed Water Spinach with Garlic",
+  "ingredients": [
+    "2 cups kangkong",
+    "3 cloves garlic, minced",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil in a pan.",
+    "Sauté garlic until fragrant.",
+    "Add kangkong and stir-fry quickly.",
+    "Season lightly and serve immediately."
+  ]
+},
+{
+  "title": "Squid in Ginger Sauce",
+  "ingredients": [
+    "1 cup squid, sliced",
+    "1 knob ginger, sliced",
+    "2 cloves garlic",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Sauté garlic and ginger in oil.",
+    "Add squid and cook quickly.",
+    "Stir for 1-2 minutes until tender.",
+    "Season lightly and serve hot."
+  ]
+},
+{
+  "title": "Tofu with Bagoong",
+  "ingredients": [
+    "1 cup tofu, fried",
+    "2 tablespoons bagoong",
+    "2 cloves garlic, minced",
+    "1 onion, chopped",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Sauté garlic and onion in oil.",
+    "Add bagoong and cook briefly.",
+    "Add fried tofu and toss evenly.",
+    "Serve hot as a side dish."
+  ]
+},
+{
+  "title": "Cassava Coconut Dessert",
+  "ingredients": [
+    "2 cups cassava, grated",
+    "1 cup coconut milk",
+    "1/2 cup sugar"
+  ],
+  "steps": [
+    "Mix cassava, coconut milk, and sugar.",
+    "Cook mixture over low heat while stirring.",
+    "Continue until thick and sticky.",
+    "Serve warm or chilled."
+  ]
+},
+{
+  "title": "Eggplant and Tomato Guisado",
+  "ingredients": [
+    "1 cup eggplant, sliced",
+    "2 tomatoes, chopped",
+    "2 cloves garlic",
+    "1 onion",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil and sauté garlic and onion.",
+    "Add tomatoes and cook until soft.",
+    "Add eggplant and cook until tender.",
+    "Season lightly and serve hot."
+  ]
+},
+{
+  "title": "Chicken Adobo with Garlic",
+  "ingredients": [
+    "2 cups chicken pieces",
+    "3 cloves garlic, minced",
+    "2 tablespoons soy sauce",
+    "2 tablespoons vinegar",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Heat oil and sauté garlic until fragrant.",
+    "Add chicken and cook until lightly browned.",
+    "Pour in soy sauce and vinegar without stirring initially.",
+    "Simmer for 20 minutes until tender.",
+    "Serve hot with rice."
+  ]
+},
+{
+  "title": "Pork with Lemongrass Stir Fry",
+  "ingredients": [
+    "2 cups pork slices",
+    "1 stalk lemongrass, chopped",
+    "2 cloves garlic",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil and sauté garlic and lemongrass.",
+    "Add pork and cook until browned.",
+    "Stir continuously for even cooking.",
+    "Season lightly and serve hot."
+  ]
+},
+{
+  "title": "Tilapia with Ginger and Tomato",
+  "ingredients": [
+    "1 whole tilapia",
+    "1 knob ginger, sliced",
+    "2 tomatoes",
+    "2 cloves garlic",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Sauté garlic and ginger in a pan.",
+    "Add tomatoes and cook until soft.",
+    "Add tilapia and cover.",
+    "Cook until fish is tender.",
+    "Season lightly and serve hot."
+  ]
+},
+{
+  "title": "Beef with Coconut Milk and Chili",
+  "ingredients": [
+    "2 cups beef slices",
+    "1 cup coconut milk",
+    "2 chili peppers",
+    "2 cloves garlic",
+    "1 onion"
+  ],
+  "steps": [
+    "Sauté garlic and onion until fragrant.",
+    "Add beef and cook until browned.",
+    "Pour coconut milk and simmer.",
+    "Add chili peppers and cook until tender.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Shrimp and Ampalaya Stir Fry",
+  "ingredients": [
+    "1 cup shrimp",
+    "1 cup ampalaya, sliced",
+    "2 cloves garlic",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil and sauté garlic.",
+    "Add shrimp and cook until pink.",
+    "Add ampalaya and stir-fry briefly.",
+    "Season lightly and serve hot."
+  ]
+},
+{
+  "title": "Pork and Eggplant Saute",
+  "ingredients": [
+    "1 cup pork slices",
+    "1 cup eggplant",
+    "2 cloves garlic",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Sauté garlic in hot oil.",
+    "Add pork and cook until browned.",
+    "Add eggplant and cook until tender.",
+    "Season lightly and serve hot."
+  ]
+},
+{
+  "title": "Chicken with Banana Blossom",
+  "ingredients": [
+    "2 cups chicken pieces",
+    "1 cup banana blossom, sliced",
+    "2 cloves garlic",
+    "1 onion",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Sauté garlic and onion.",
+    "Add chicken and cook until browned.",
+    "Add banana blossom.",
+    "Cook until tender and flavors combine.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Fish Head Soup with Ginger",
+  "ingredients": [
+    "2 fish heads",
+    "1 knob ginger, sliced",
+    "2 tomatoes",
+    "1 onion",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Boil fish heads with onion and ginger.",
+    "Add tomatoes and simmer.",
+    "Cook until flavors develop.",
+    "Season lightly and serve hot."
+  ]
+},
+{
+  "title": "Clams in Coconut Milk",
+  "ingredients": [
+    "1 cup clams",
+    "1 cup coconut milk",
+    "2 cloves garlic",
+    "1 onion",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Sauté garlic and onion.",
+    "Add clams and cook briefly.",
+    "Pour coconut milk and simmer.",
+    "Cook until clams open.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Sweet Mango Coconut Dessert",
+  "ingredients": [
+    "1 cup mango slices",
+    "1 cup coconut milk",
+    "1/2 cup sugar"
+  ],
+  "steps": [
+    "Heat coconut milk and sugar.",
+    "Add mango slices.",
+    "Simmer gently until soft.",
+    "Serve chilled or warm."
+  ]
+},
+{
+  "title": "Duck with Tamarind Broth",
+  "ingredients": [
+    "2 cups duck pieces",
+    "1 cup tamarind pulp",
+    "1 onion",
+    "2 tomatoes",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Boil duck with onion and tomatoes.",
+    "Add tamarind pulp.",
+    "Simmer until duck is tender.",
+    "Season lightly and serve hot."
+  ]
+},
+{
+  "title": "Squid in Coconut Milk",
+  "ingredients": [
+    "1 cup squid",
+    "1 cup coconut milk",
+    "2 cloves garlic",
+    "1 onion",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Sauté garlic and onion.",
+    "Add squid and cook briefly.",
+    "Pour coconut milk and simmer.",
+    "Cook until squid is tender.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Tofu and String Beans Stir Fry",
+  "ingredients": [
+    "1 cup tofu, cubed",
+    "1 cup string beans",
+    "2 cloves garlic",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil and sauté garlic.",
+    "Add tofu and cook until slightly browned.",
+    "Add string beans and stir-fry.",
+    "Season lightly and serve hot."
+  ]
+},
+{
+  "title": "Corn and Chicken Soup",
+  "ingredients": [
+    "1 cup corn kernels",
+    "1 cup chicken",
+    "1 liter water",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Boil chicken in water until tender.",
+    "Add corn kernels.",
+    "Simmer until flavors blend.",
+    "Season lightly and serve hot."
+  ]
+},
+{
+  "title": "Sweet Potato Coconut Mix",
+  "ingredients": [
+    "2 cups sweet potato",
+    "1 cup coconut milk",
+    "1/2 cup sugar"
+  ],
+  "steps": [
+    "Boil sweet potatoes until tender.",
+    "Add coconut milk and sugar.",
+    "Simmer until thick.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Garlic Fried Egg",
+  "ingredients": [
+    "2 eggs",
+    "2 cloves garlic, minced",
+    "1 tablespoon oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil in a pan over medium heat.",
+    "Sauté garlic until lightly golden and fragrant.",
+    "Crack eggs into the pan and cook to desired doneness.",
+    "Season lightly and serve warm.",
+    "Serve immediately with rice if desired."
+  ]
+},
+{
+  "title": "Tomato Egg Stir Fry",
+  "ingredients": [
+    "2 eggs",
+    "2 tomatoes, chopped",
+    "2 cloves garlic, minced",
+    "1 tablespoon oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil and sauté garlic until fragrant.",
+    "Add tomatoes and cook until soft.",
+    "Pour beaten eggs into the pan.",
+    "Stir gently until eggs are cooked.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Pork Garlic Stir Fry",
+  "ingredients": [
+    "1 cup pork, sliced",
+    "3 cloves garlic, minced",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil in a pan over medium heat.",
+    "Add garlic and sauté until fragrant.",
+    "Add pork and cook until browned and fully cooked.",
+    "Season lightly and stir well.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Chicken Tomato Saute",
+  "ingredients": [
+    "1 cup chicken breast, sliced",
+    "2 tomatoes, chopped",
+    "2 cloves garlic",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil and sauté garlic.",
+    "Add chicken and cook until lightly browned.",
+    "Add tomatoes and cook until softened.",
+    "Mix thoroughly and season lightly.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Shrimp Garlic Stir",
+  "ingredients": [
+    "1 cup shrimp",
+    "3 cloves garlic, minced",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil in a pan.",
+    "Sauté garlic until fragrant.",
+    "Add shrimp and cook until pink.",
+    "Stir occasionally to ensure even cooking.",
+    "Serve immediately."
+  ]
+},
+{
+  "title": "Squid Garlic Fry",
+  "ingredients": [
+    "1 cup squid, sliced",
+    "3 cloves garlic, minced",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil and sauté garlic.",
+    "Add squid and cook quickly.",
+    "Stir for about 2 minutes until tender.",
+    "Season lightly.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Beef Onion Stir Fry",
+  "ingredients": [
+    "1 cup beef, sliced",
+    "1 onion, sliced",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil and sauté onions.",
+    "Add beef and cook until browned.",
+    "Stir continuously for even cooking.",
+    "Season lightly.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Kangkong Garlic Saute",
+  "ingredients": [
+    "2 cups kangkong",
+    "3 cloves garlic",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil and sauté garlic.",
+    "Add kangkong and stir-fry quickly.",
+    "Cook until just wilted.",
+    "Season lightly.",
+    "Serve immediately."
+  ]
+},
+{
+  "title": "Eggplant Tomato Saute",
+  "ingredients": [
+    "1 cup eggplant, sliced",
+    "2 tomatoes",
+    "2 cloves garlic",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Sauté garlic in hot oil.",
+    "Add tomatoes and cook until soft.",
+    "Add eggplant and cook until tender.",
+    "Mix well and season.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Okra Garlic Stir Fry",
+  "ingredients": [
+    "1 cup okra",
+    "2 cloves garlic",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil in a pan.",
+    "Add garlic and sauté.",
+    "Add okra and cook briefly.",
+    "Stir occasionally to avoid overcooking.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Squash Coconut Stew",
+  "ingredients": [
+    "1 cup squash, cubed",
+    "1 cup coconut milk",
+    "2 cloves garlic",
+    "1 onion",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Sauté garlic and onion until fragrant.",
+    "Add squash and cook briefly.",
+    "Pour in coconut milk.",
+    "Simmer until squash becomes tender.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Chicken Coconut Curry Simple",
+  "ingredients": [
+    "1 cup chicken",
+    "1 cup coconut milk",
+    "1 tablespoon curry powder",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil and cook chicken until browned.",
+    "Add curry powder and mix well.",
+    "Pour coconut milk and simmer.",
+    "Cook until chicken is tender.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Tilapia Coconut Stew",
+  "ingredients": [
+    "1 whole tilapia",
+    "1 cup coconut milk",
+    "2 cloves garlic",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Sauté garlic in a pan.",
+    "Add fish and cook lightly.",
+    "Pour coconut milk and simmer.",
+    "Cook until fish is fully done.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Pork Ginger Saute",
+  "ingredients": [
+    "1 cup pork, sliced",
+    "1 knob ginger, sliced",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil and sauté ginger.",
+    "Add pork and cook until browned.",
+    "Stir occasionally for even cooking.",
+    "Season lightly.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Chicken Lemongrass Stir Fry",
+  "ingredients": [
+    "1 cup chicken",
+    "1 stalk lemongrass",
+    "2 cloves garlic",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Sauté garlic and lemongrass.",
+    "Add chicken and cook thoroughly.",
+    "Stir continuously.",
+    "Cook until tender.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Shrimp Tomato Stir",
+  "ingredients": [
+    "1 cup shrimp",
+    "2 tomatoes",
+    "2 cloves garlic",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Heat oil and sauté garlic.",
+    "Add shrimp and cook until pink.",
+    "Add tomatoes and cook until soft.",
+    "Mix well.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Corn and Egg Stir",
+  "ingredients": [
+    "1 cup corn",
+    "2 eggs",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil and cook corn.",
+    "Add beaten eggs.",
+    "Stir until eggs are cooked.",
+    "Mix thoroughly.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Sweet Potato Coconut Mix",
+  "ingredients": [
+    "2 cups sweet potato",
+    "1 cup coconut milk",
+    "1/2 cup sugar"
+  ],
+  "steps": [
+    "Boil sweet potatoes until tender.",
+    "Add coconut milk and sugar.",
+    "Stir continuously.",
+    "Simmer until thickened.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Banana Coconut Dessert",
+  "ingredients": [
+    "2 bananas",
+    "1 cup coconut milk",
+    "1/2 cup sugar"
+  ],
+  "steps": [
+    "Heat coconut milk and sugar.",
+    "Add bananas.",
+    "Simmer gently.",
+    "Cook until slightly thick.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Cassava Coconut Dessert",
+  "ingredients": [
+    "2 cups cassava",
+    "1 cup coconut milk",
+    "1/2 cup sugar"
+  ],
+  "steps": [
+    "Mix cassava with coconut milk.",
+    "Cook over low heat.",
+    "Stir continuously.",
+    "Cook until thick.",
+    "Serve warm or chilled."
+  ]
+},
+{
+  "title": "Garlic Rice Simple",
+  "ingredients": [
+    "2 cups cooked rice",
+    "3 cloves garlic, minced",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil in a pan over medium heat.",
+    "Add garlic and sauté until golden and fragrant.",
+    "Add rice and break apart clumps.",
+    "Stir continuously until heated through.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Egg Fried Rice Basic",
+  "ingredients": [
+    "2 cups cooked rice",
+    "2 eggs",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil in a pan and scramble the eggs.",
+    "Add rice and break apart clumps.",
+    "Mix eggs evenly with the rice.",
+    "Cook until heated through.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Shrimp Rice Bowl",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1 cup shrimp",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Cook shrimp in a pan until pink.",
+    "Prepare a bowl of warm rice.",
+    "Place shrimp over the rice.",
+    "Season lightly.",
+    "Serve immediately."
+  ]
+},
+{
+  "title": "Chicken Garlic Rice",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1 cup chicken",
+    "2 cloves garlic",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Cook chicken until browned.",
+    "Sauté garlic in oil.",
+    "Add rice and chicken.",
+    "Mix thoroughly.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Pork Egg Rice Mix",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1 cup pork",
+    "2 eggs",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Cook pork until fully done.",
+    "Add eggs and scramble.",
+    "Add rice and mix well.",
+    "Cook until heated through.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Vegetable Garlic Rice",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1 cup mixed vegetables",
+    "2 cloves garlic",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Sauté garlic in hot oil.",
+    "Add vegetables and cook slightly.",
+    "Add rice and mix evenly.",
+    "Continue cooking for a few minutes.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Fish Rice Bowl",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1 cup fish fillet",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Cook fish in a pan until done.",
+    "Prepare warm rice.",
+    "Place fish over the rice.",
+    "Season lightly.",
+    "Serve immediately."
+  ]
+},
+{
+  "title": "Tofu Garlic Rice",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1 cup tofu",
+    "2 cloves garlic",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Cook tofu until lightly browned.",
+    "Sauté garlic in oil.",
+    "Add rice and tofu.",
+    "Mix thoroughly.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Egg Corn Rice Mix",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1 cup corn",
+    "2 eggs",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Cook corn in a pan.",
+    "Add eggs and scramble.",
+    "Add rice and mix evenly.",
+    "Cook until heated through.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Chicken Rice Bowl Simple",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1 cup chicken",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Cook chicken until tender.",
+    "Prepare warm rice.",
+    "Place chicken over rice.",
+    "Season lightly.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Beef Rice Bowl",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1 cup beef",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Cook beef until browned.",
+    "Prepare warm rice.",
+    "Place beef over rice.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Pork Garlic Rice Bowl",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1 cup pork",
+    "2 cloves garlic",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Cook pork in a pan.",
+    "Sauté garlic.",
+    "Add rice and pork.",
+    "Mix well.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Shrimp Egg Rice",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1 cup shrimp",
+    "2 eggs",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Cook shrimp until pink.",
+    "Add eggs and scramble.",
+    "Add rice and mix evenly.",
+    "Cook until heated.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Vegetable Egg Rice",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1 cup vegetables",
+    "2 eggs",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Cook vegetables briefly.",
+    "Add eggs and scramble.",
+    "Add rice and mix well.",
+    "Cook until heated.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Fish Garlic Rice",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1 cup fish",
+    "2 cloves garlic",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Cook fish until done.",
+    "Sauté garlic.",
+    "Add rice and fish.",
+    "Mix thoroughly.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Chicken Egg Bowl",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1 cup chicken",
+    "2 eggs",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Cook chicken until browned.",
+    "Add eggs and scramble.",
+    "Serve on warm rice.",
+    "Mix slightly.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Garlic Butter Rice",
+  "ingredients": [
+    "2 cups cooked rice",
+    "2 tablespoons butter",
+    "2 cloves garlic"
+  ],
+  "steps": [
+    "Melt butter in a pan.",
+    "Add garlic and sauté.",
+    "Add rice and mix well.",
+    "Cook briefly.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Simple Vegetable Bowl",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1 cup vegetables"
+  ],
+  "steps": [
+    "Prepare rice in a bowl.",
+    "Cook vegetables lightly.",
+    "Add to the rice.",
+    "Mix gently.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Egg and Garlic Bowl",
+  "ingredients": [
+    "2 cups cooked rice",
+    "2 eggs",
+    "2 cloves garlic",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Sauté garlic in oil.",
+    "Add eggs and scramble.",
+    "Serve over warm rice.",
+    "Mix lightly.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Chicken and Corn Rice",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1 cup chicken",
+    "1 cup corn"
+  ],
+  "steps": [
+    "Cook chicken until done.",
+    "Add corn and heat.",
+    "Mix with rice.",
+    "Serve warm.",
+    "Enjoy immediately."
+  ]
+},
+{
+  "title": "Sweet Mango Rice",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1 mango",
+    "1/4 cup sugar"
+  ],
+  "steps": [
+    "Slice mango into small pieces.",
+    "Mix mango with rice.",
+    "Add sugar and mix.",
+    "Serve chilled or warm.",
+    "Enjoy."
+  ]
+},
+{
+  "title": "Coconut Rice Simple",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1 cup coconut milk",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat coconut milk in a pan.",
+    "Add rice and mix.",
+    "Cook until absorbed.",
+    "Season lightly.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Cassava Sweet Bowl",
+  "ingredients": [
+    "2 cups cassava",
+    "1/2 cup sugar"
+  ],
+  "steps": [
+    "Boil cassava until soft.",
+    "Add sugar.",
+    "Mix thoroughly.",
+    "Serve warm.",
+    "Enjoy."
+  ]
+},
+{
+  "title": "Sweet Potato Bowl",
+  "ingredients": [
+    "2 cups sweet potato",
+    "1/4 cup sugar"
+  ],
+  "steps": [
+    "Boil sweet potatoes.",
+    "Add sugar.",
+    "Mash lightly.",
+    "Serve warm.",
+    "Enjoy."
+  ]
+},
+{
+  "title": "Tuna Rice Bowl",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1 cup tuna"
+  ],
+  "steps": [
+    "Prepare rice in a bowl.",
+    "Add tuna on top.",
+    "Mix lightly.",
+    "Serve warm.",
+    "Enjoy."
+  ]
+},
+{
+  "title": "Vegetable Coconut Bowl",
+  "ingredients": [
+    "2 cups vegetables",
+    "1 cup coconut milk"
+  ],
+  "steps": [
+    "Cook vegetables in a pan.",
+    "Add coconut milk and simmer.",
+    "Cook until tender.",
+    "Serve warm.",
+    "Enjoy."
+  ]
+},
+{
+  "title": "Pork Coconut Stew Simple",
+  "ingredients": [
+    "1 cup pork",
+    "1 cup coconut milk"
+  ],
+  "steps": [
+    "Cook pork until browned.",
+    "Add coconut milk.",
+    "Simmer until tender.",
+    "Serve hot.",
+    "Enjoy."
+  ]
+},
+{
+  "title": "Chicken Coconut Bowl",
+  "ingredients": [
+    "1 cup chicken",
+    "1 cup coconut milk"
+  ],
+  "steps": [
+    "Cook chicken until done.",
+    "Add coconut milk.",
+    "Simmer briefly.",
+    "Serve warm.",
+    "Enjoy."
+  ]
+},
+{
+  "title": "Garlic Shrimp Rice",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1 cup shrimp",
+    "3 cloves garlic"
+  ],
+  "steps": [
+    "Cook shrimp until pink.",
+    "Sauté garlic.",
+    "Add rice and shrimp.",
+    "Mix evenly.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Egg Coconut Rice",
+  "ingredients": [
+    "2 cups cooked rice",
+    "2 eggs",
+    "1 cup coconut milk"
+  ],
+  "steps": [
+    "Cook eggs and set aside.",
+    "Heat coconut milk.",
+    "Add rice and mix.",
+    "Add eggs.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Pork and Tomato Soup",
+  "ingredients": [
+    "2 cups pork",
+    "2 tomatoes",
+    "1 onion",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Boil pork with onion until tender.",
+    "Add tomatoes and simmer.",
+    "Cook until flavors combine.",
+    "Season lightly.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Chicken Garlic Soup",
+  "ingredients": [
+    "2 cups chicken",
+    "3 cloves garlic",
+    "1 onion",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Boil chicken with garlic and onion.",
+    "Simmer until chicken is tender.",
+    "Season lightly.",
+    "Serve hot.",
+    "Enjoy with rice."
+  ]
+},
+{
+  "title": "Shrimp Corn Soup",
+  "ingredients": [
+    "1 cup shrimp",
+    "1 cup corn",
+    "1 liter water",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Boil water and add corn.",
+    "Add shrimp and cook until pink.",
+    "Simmer briefly.",
+    "Season lightly.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Fish with Tomato Broth",
+  "ingredients": [
+    "1 cup fish fillet",
+    "2 tomatoes",
+    "1 onion",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Sauté onion and tomato.",
+    "Add water and bring to boil.",
+    "Add fish and cook until tender.",
+    "Season lightly.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Chicken Egg Drop Soup",
+  "ingredients": [
+    "1 cup chicken",
+    "2 eggs",
+    "1 liter water",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Boil chicken until cooked.",
+    "Slowly pour beaten eggs.",
+    "Stir gently.",
+    "Cook briefly.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Beef Garlic Soup",
+  "ingredients": [
+    "2 cups beef",
+    "3 cloves garlic",
+    "1 onion",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Boil beef with garlic and onion.",
+    "Simmer until tender.",
+    "Season lightly.",
+    "Serve hot.",
+    "Enjoy."
+  ]
+},
+{
+  "title": "Pork and Egg Stir",
+  "ingredients": [
+    "1 cup pork",
+    "2 eggs",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Cook pork until browned.",
+    "Add eggs and scramble.",
+    "Mix evenly.",
+    "Cook thoroughly.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Chicken Potato Stew",
+  "ingredients": [
+    "1 cup chicken",
+    "1 cup potato",
+    "1 onion",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Cook chicken in a pot.",
+    "Add potatoes and onion.",
+    "Simmer until tender.",
+    "Season lightly.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Shrimp Garlic Butter Rice",
+  "ingredients": [
+    "2 cups rice",
+    "1 cup shrimp",
+    "2 tablespoons butter",
+    "2 cloves garlic"
+  ],
+  "steps": [
+    "Cook shrimp in butter and garlic.",
+    "Add rice and mix well.",
+    "Cook until heated.",
+    "Stir evenly.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Fish Coconut Soup",
+  "ingredients": [
+    "1 cup fish",
+    "1 cup coconut milk",
+    "1 onion",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Cook fish in a pot.",
+    "Add coconut milk.",
+    "Simmer gently.",
+    "Season lightly.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Tuna Garlic Fried Rice",
+  "ingredients": [
+    "1 cup canned tuna",
+    "2 cups rice",
+    "2 cloves garlic",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil and sauté garlic.",
+    "Add tuna and cook briefly.",
+    "Add rice and mix well.",
+    "Cook until heated through.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Cheese Egg Sandwich",
+  "ingredients": [
+    "2 slices bread",
+    "1 egg",
+    "1 slice cheese",
+    "1 tablespoon butter"
+  ],
+  "steps": [
+    "Cook egg in a pan.",
+    "Toast bread with butter.",
+    "Place egg and cheese between bread.",
+    "Heat briefly until cheese melts.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Corned Beef with Onion",
+  "ingredients": [
+    "1 cup corned beef",
+    "1 onion",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Heat oil and sauté onion.",
+    "Add corned beef.",
+    "Mix thoroughly.",
+    "Cook until heated.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Hotdog Fried Rice",
+  "ingredients": [
+    "2 hotdogs",
+    "2 cups rice",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Slice hotdogs and cook in oil.",
+    "Add rice.",
+    "Mix thoroughly.",
+    "Cook until heated.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Simple Spaghetti",
+  "ingredients": [
+    "2 cups spaghetti",
+    "1 cup tomato sauce",
+    "2 cloves garlic"
+  ],
+  "steps": [
+    "Cook spaghetti according to instructions.",
+    "Sauté garlic.",
+    "Add tomato sauce.",
+    "Mix with spaghetti.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Pancit with Vegetables",
+  "ingredients": [
+    "2 cups pancit noodles",
+    "1 cup vegetables",
+    "2 cloves garlic",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Sauté garlic.",
+    "Add vegetables.",
+    "Add noodles and stir.",
+    "Cook until soft.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Milk Banana Drink",
+  "ingredients": [
+    "1 banana",
+    "1 cup milk",
+    "1 tablespoon sugar"
+  ],
+  "steps": [
+    "Blend banana and milk.",
+    "Add sugar.",
+    "Mix until smooth.",
+    "Serve cold.",
+    "Enjoy."
+  ]
+},
+{
+  "title": "Chocolate Banana Snack",
+  "ingredients": [
+    "1 banana",
+    "2 tablespoons chocolate",
+    "1 tablespoon butter"
+  ],
+  "steps": [
+    "Slice banana.",
+    "Melt chocolate in pan.",
+    "Add banana and coat.",
+    "Cook briefly.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Cabbage Garlic Stir Fry",
+  "ingredients": [
+    "2 cups cabbage",
+    "2 cloves garlic",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Heat oil and sauté garlic.",
+    "Add cabbage.",
+    "Cook until tender.",
+    "Serve warm.",
+    "Enjoy."
+  ]
+},
+{
+  "title": "Sardines Tomato Meal",
+  "ingredients": [
+    "1 can sardines",
+    "2 tomatoes",
+    "1 onion"
+  ],
+  "steps": [
+    "Sauté onion and tomatoes.",
+    "Add sardines.",
+    "Mix thoroughly.",
+    "Cook briefly.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Tuna Garlic Fried Rice",
+  "ingredients": [
+    "1 cup canned tuna, drained",
+    "2 cups cooked rice",
+    "2 cloves garlic, minced",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil in a pan and sauté garlic until fragrant.",
+    "Add tuna and cook for 2 minutes.",
+    "Add cooked rice and break apart clumps.",
+    "Mix thoroughly and season with salt.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Cheese Omelette",
+  "ingredients": [
+    "2 eggs",
+    "1/2 cup grated cheese",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Beat eggs in a bowl and add salt.",
+    "Heat oil in a pan.",
+    "Pour eggs and cook slightly.",
+    "Add cheese and fold the omelette.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Corned Beef with Onion",
+  "ingredients": [
+    "1 cup corned beef",
+    "1 onion, sliced",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil in a pan and sauté onion until soft.",
+    "Add corned beef and break into smaller pieces.",
+    "Cook for 5 minutes while stirring.",
+    "Season lightly if needed.",
+    "Serve hot with rice."
+  ]
+},
+{
+  "title": "Hotdog Fried Rice",
+  "ingredients": [
+    "2 hotdogs, sliced",
+    "2 cups cooked rice",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil and cook sliced hotdogs until lightly browned.",
+    "Add rice and mix thoroughly.",
+    "Stir well and cook until heated through.",
+    "Season lightly.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Sardines with Tomato",
+  "ingredients": [
+    "1 can sardines",
+    "2 tomatoes, chopped",
+    "1 onion, chopped",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Heat oil and sauté onion and tomatoes.",
+    "Cook until tomatoes soften.",
+    "Add sardines and mix gently.",
+    "Simmer for 3 minutes.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Simple Spaghetti with Garlic",
+  "ingredients": [
+    "2 cups spaghetti noodles",
+    "1 cup tomato sauce",
+    "2 cloves garlic, minced",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Cook spaghetti according to package instructions.",
+    "Heat oil and sauté garlic.",
+    "Add tomato sauce and simmer for 5 minutes.",
+    "Mix sauce with noodles.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Pancit with Garlic and Vegetables",
+  "ingredients": [
+    "2 cups pancit noodles",
+    "1 cup mixed vegetables",
+    "2 cloves garlic, minced",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Heat oil and sauté garlic until fragrant.",
+    "Add vegetables and cook briefly.",
+    "Add pancit noodles and stir.",
+    "Cook until noodles are soft.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Banana Milk Shake",
+  "ingredients": [
+    "1 ripe banana",
+    "1 cup milk",
+    "2 tablespoons sugar",
+    "1 cup ice"
+  ],
+  "steps": [
+    "Combine banana, milk, sugar, and ice in a blender.",
+    "Blend until smooth.",
+    "Taste and adjust sweetness if needed.",
+    "Pour into a glass.",
+    "Serve cold."
+  ]
+},
+{
+  "title": "Chocolate Milk Drink",
+  "ingredients": [
+    "1 cup milk",
+    "2 tablespoons chocolate powder",
+    "1 tablespoon sugar"
+  ],
+  "steps": [
+    "Heat milk in a small pot.",
+    "Add chocolate powder and sugar.",
+    "Stir until fully dissolved.",
+    "Heat until warm.",
+    "Serve immediately."
+  ]
+},
+{
+  "title": "Cabbage Garlic Stir Fry",
+  "ingredients": [
+    "2 cups cabbage, chopped",
+    "2 cloves garlic, minced",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil and sauté garlic.",
+    "Add cabbage and stir-fry.",
+    "Cook until slightly tender.",
+    "Season lightly.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Tuna Sandwich",
+  "ingredients": [
+    "2 slices bread",
+    "1/2 cup canned tuna",
+    "2 tablespoons mayonnaise"
+  ],
+  "steps": [
+    "Mix tuna with mayonnaise.",
+    "Spread mixture on one slice of bread.",
+    "Top with another slice.",
+    "Cut into halves.",
+    "Serve immediately."
+  ]
+},
+{
+  "title": "Egg and Cheese Sandwich",
+  "ingredients": [
+    "2 slices bread",
+    "1 egg",
+    "1 slice cheese",
+    "1 tablespoon butter"
+  ],
+  "steps": [
+    "Cook egg in a pan.",
+    "Toast bread with butter.",
+    "Place egg and cheese between bread slices.",
+    "Heat briefly until cheese melts.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Garlic Butter Bread",
+  "ingredients": [
+    "2 slices bread",
+    "2 cloves garlic, minced",
+    "2 tablespoons butter"
+  ],
+  "steps": [
+    "Mix garlic with butter.",
+    "Spread mixture on bread.",
+    "Toast in a pan until golden.",
+    "Flip to toast both sides.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Corn Rice Mix",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1 cup corn kernels",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil in a pan.",
+    "Add corn and cook briefly.",
+    "Add rice and mix evenly.",
+    "Season lightly.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Vegetable Fried Rice",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1 cup mixed vegetables",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil in a pan.",
+    "Add vegetables and cook briefly.",
+    "Add rice and mix well.",
+    "Cook until heated through.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Sweet Banana Rice Dessert",
+  "ingredients": [
+    "2 cups cooked rice",
+    "2 bananas, sliced",
+    "1/4 cup sugar"
+  ],
+  "steps": [
+    "Warm rice in a pan.",
+    "Add sliced bananas.",
+    "Sprinkle sugar and mix.",
+    "Cook briefly until sugar dissolves.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Milk Rice Porridge",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1 cup milk",
+    "2 tablespoons sugar"
+  ],
+  "steps": [
+    "Combine rice and milk in a pot.",
+    "Heat over medium heat.",
+    "Add sugar and stir.",
+    "Cook until creamy.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Garlic Shrimp Rice",
+  "ingredients": [
+    "1 cup shrimp",
+    "2 cups cooked rice",
+    "2 cloves garlic, minced",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Heat oil and sauté garlic.",
+    "Add shrimp and cook until pink.",
+    "Add rice and mix thoroughly.",
+    "Cook until heated through.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Tofu and Rice Bowl",
+  "ingredients": [
+    "1 cup tofu, cubed",
+    "2 cups cooked rice",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil and cook tofu until lightly browned.",
+    "Prepare warm rice.",
+    "Top rice with tofu.",
+    "Season lightly.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Sardines Fried Rice",
+  "ingredients": [
+    "1 can sardines",
+    "2 cups cooked rice",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Heat oil in a pan.",
+    "Add sardines and break into pieces.",
+    "Add rice and mix well.",
+    "Cook until heated through.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Tuna Egg Stir Fry",
+  "ingredients": [
+    "1 cup canned tuna, drained",
+    "2 eggs",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil in a pan over medium heat.",
+    "Add tuna and cook for 2 minutes.",
+    "Pour in beaten eggs and stir continuously.",
+    "Cook until eggs are set.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Milk Pancakes Simple",
+  "ingredients": [
+    "1 cup flour",
+    "1 cup milk",
+    "1 egg",
+    "2 tablespoons sugar",
+    "1 tablespoon oil"
+  ],
+  "steps": [
+    "Mix flour, milk, egg, and sugar into a batter.",
+    "Heat oil in a pan.",
+    "Pour batter and cook until bubbles form.",
+    "Flip and cook until golden.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Bread Garlic Toast",
+  "ingredients": [
+    "2 slices bread",
+    "2 cloves garlic, minced",
+    "2 tablespoons butter"
+  ],
+  "steps": [
+    "Mix garlic with butter.",
+    "Spread on bread slices.",
+    "Toast in a pan until golden.",
+    "Flip and toast the other side.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Egg Fried Noodles",
+  "ingredients": [
+    "2 cups noodles",
+    "2 eggs",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Cook noodles according to package instructions.",
+    "Heat oil and scramble eggs.",
+    "Add noodles and mix well.",
+    "Season lightly.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Tuna Pancit",
+  "ingredients": [
+    "2 cups pancit noodles",
+    "1 cup canned tuna",
+    "2 cloves garlic",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Heat oil and sauté garlic.",
+    "Add tuna and cook briefly.",
+    "Add pancit noodles and stir.",
+    "Cook until soft.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Sardines Egg Dish",
+  "ingredients": [
+    "1 can sardines",
+    "2 eggs",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Heat oil in a pan.",
+    "Add sardines and cook briefly.",
+    "Add eggs and scramble.",
+    "Cook until fully done.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Cheese Garlic Rice",
+  "ingredients": [
+    "2 cups cooked rice",
+    "1/2 cup cheese",
+    "2 cloves garlic",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Heat oil and sauté garlic.",
+    "Add rice and mix well.",
+    "Add cheese and combine.",
+    "Cook until melted.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Milk and Corn Soup",
+  "ingredients": [
+    "1 cup corn",
+    "1 cup milk",
+    "1 cup water",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Combine corn and water in a pot.",
+    "Bring to a boil.",
+    "Add milk and simmer.",
+    "Season lightly.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Hotdog and Egg Meal",
+  "ingredients": [
+    "2 hotdogs",
+    "2 eggs",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Slice hotdogs and cook in oil.",
+    "Add eggs and scramble.",
+    "Cook thoroughly.",
+    "Serve hot.",
+    "Enjoy."
+  ]
+},
+{
+  "title": "Tuna Cheese Melt",
+  "ingredients": [
+    "1 cup canned tuna",
+    "2 slices bread",
+    "1/2 cup cheese",
+    "1 tablespoon butter"
+  ],
+  "steps": [
+    "Mix tuna and cheese.",
+    "Spread on bread slices.",
+    "Heat in a pan with butter.",
+    "Cook until bread is toasted.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Simple Milk Rice Drink",
+  "ingredients": [
+    "1 cup cooked rice",
+    "1 cup milk",
+    "2 tablespoons sugar"
+  ],
+  "steps": [
+    "Blend rice with milk.",
+    "Add sugar and mix.",
+    "Serve cold.",
+    "Enjoy.",
+    "Chill if desired."
+  ]
+},
+{
+  "title": "Garlic Corn Stir Fry",
+  "ingredients": [
+    "1 cup corn",
+    "2 cloves garlic",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil in a pan.",
+    "Sauté garlic until fragrant.",
+    "Add corn and stir.",
+    "Cook briefly.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Egg and Tomato Sandwich",
+  "ingredients": [
+    "2 slices bread",
+    "1 egg",
+    "1 tomato",
+    "1 tablespoon butter"
+  ],
+  "steps": [
+    "Cook egg in a pan.",
+    "Slice tomato.",
+    "Toast bread with butter.",
+    "Assemble sandwich.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Chocolate Banana Drink",
+  "ingredients": [
+    "1 banana",
+    "1 cup milk",
+    "2 tablespoons chocolate",
+    "1 tablespoon sugar"
+  ],
+  "steps": [
+    "Combine all ingredients in a blender.",
+    "Blend until smooth.",
+    "Taste and adjust sweetness.",
+    "Pour into a glass.",
+    "Serve cold."
+  ]
+},
+{
+  "title": "Cheese Omelette Rice",
+  "ingredients": [
+    "2 eggs",
+    "1 cup cheese",
+    "2 cups rice",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Beat eggs and cook in a pan.",
+    "Add cheese and fold.",
+    "Serve over warm rice.",
+    "Allow cheese to melt fully.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Vegetable Egg Stir Fry",
+  "ingredients": [
+    "1 cup vegetables",
+    "2 eggs",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Cook vegetables in oil.",
+    "Add beaten eggs.",
+    "Stir continuously.",
+    "Cook until set.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Tuna Corn Mix",
+  "ingredients": [
+    "1 cup canned tuna",
+    "1 cup corn",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil in a pan.",
+    "Add tuna and corn.",
+    "Mix thoroughly.",
+    "Cook briefly.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Bread Sweet Milk Toast",
+  "ingredients": [
+    "2 slices bread",
+    "1/2 cup milk",
+    "2 tablespoons sugar",
+    "1 tablespoon butter"
+  ],
+  "steps": [
+    "Mix milk and sugar.",
+    "Dip bread lightly.",
+    "Heat butter in a pan.",
+    "Cook bread until golden.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Corned Beef Egg Fried Rice",
+  "ingredients": [
+    "1 cup corned beef",
+    "2 eggs",
+    "2 cups cooked rice",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Cook corned beef in a pan.",
+    "Add eggs and scramble.",
+    "Add rice and mix well.",
+    "Cook until heated through.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Hotdog Pancit",
+  "ingredients": [
+    "2 hotdogs",
+    "2 cups pancit noodles",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Slice hotdogs and cook in oil.",
+    "Add noodles and mix.",
+    "Cook until soft.",
+    "Stir well.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Egg Garlic Stir",
+  "ingredients": [
+    "2 eggs",
+    "2 cloves garlic, minced",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil in a pan and sauté garlic.",
+    "Add beaten eggs.",
+    "Stir continuously until cooked.",
+    "Season lightly.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Simple Tuna Rice",
+  "ingredients": [
+    "1 cup canned tuna",
+    "2 cups cooked rice",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat tuna in a pan.",
+    "Add rice and mix.",
+    "Cook until heated through.",
+    "Season lightly.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Milk Egg Scramble",
+  "ingredients": [
+    "2 eggs",
+    "1/2 cup milk",
+    "1 tablespoon butter",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Beat eggs with milk.",
+    "Melt butter in a pan.",
+    "Cook eggs while stirring.",
+    "Cook until soft.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Bread Butter Toast",
+  "ingredients": [
+    "2 slices bread",
+    "2 tablespoons butter"
+  ],
+  "steps": [
+    "Spread butter on bread.",
+    "Toast in a pan until golden.",
+    "Flip and toast the other side.",
+    "Serve warm.",
+    "Enjoy."
+  ]
+},
+{
+  "title": "Hotdog Rice Meal",
+  "ingredients": [
+    "2 hotdogs",
+    "2 cups cooked rice",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Slice and cook hotdogs.",
+    "Prepare rice.",
+    "Add hotdogs on top.",
+    "Mix lightly.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Corn Egg Stir Fry",
+  "ingredients": [
+    "1 cup corn",
+    "2 eggs",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Heat oil in a pan.",
+    "Add corn and cook briefly.",
+    "Add eggs and stir.",
+    "Cook until done.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Simple Cheese Bread",
+  "ingredients": [
+    "2 slices bread",
+    "1/2 cup cheese",
+    "1 tablespoon butter"
+  ],
+  "steps": [
+    "Spread butter on bread.",
+    "Add cheese on top.",
+    "Toast until melted.",
+    "Serve warm.",
+    "Enjoy."
+  ]
+},
+{
+  "title": "Tuna Garlic Mix",
+  "ingredients": [
+    "1 cup canned tuna",
+    "2 cloves garlic",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Heat oil and sauté garlic.",
+    "Add tuna and mix.",
+    "Cook briefly.",
+    "Serve warm.",
+    "Enjoy."
+  ]
+},
+{
+  "title": "Egg Rice Mix",
+  "ingredients": [
+    "2 eggs",
+    "2 cups cooked rice",
+    "2 tablespoons oil",
+    "Salt to taste"
+  ],
+  "steps": [
+    "Cook eggs in a pan.",
+    "Add rice and mix.",
+    "Cook evenly.",
+    "Season lightly.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Milk Sweet Drink",
+  "ingredients": [
+    "1 cup milk",
+    "2 tablespoons sugar"
+  ],
+  "steps": [
+    "Heat milk in a pot.",
+    "Add sugar and stir.",
+    "Mix until dissolved.",
+    "Serve warm.",
+    "Enjoy."
+  ]
+},
+
+{
+  "title": "Garlic Fried Corn",
+  "ingredients": [
+    "1 cup corn",
+    "2 cloves garlic",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Heat oil and sauté garlic.",
+    "Add corn and cook.",
+    "Stir well.",
+    "Cook briefly.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Egg Tomato Mix",
+  "ingredients": [
+    "2 eggs",
+    "2 tomatoes",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Sauté tomatoes in oil.",
+    "Add eggs and scramble.",
+    "Cook thoroughly.",
+    "Mix well.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Fish Garlic Fry",
+  "ingredients": [
+    "1 cup fish",
+    "2 cloves garlic",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Heat oil and sauté garlic.",
+    "Add fish and cook.",
+    "Flip for even cooking.",
+    "Cook until done.",
+    "Serve hot."
+  ]
+},
+{
+  "title": "Chicken Rice Bowl Simple",
+  "ingredients": [
+    "1 cup chicken",
+    "2 cups cooked rice"
+  ],
+  "steps": [
+    "Cook chicken until done.",
+    "Prepare rice.",
+    "Place chicken over rice.",
+    "Serve warm.",
+    "Enjoy."
+  ]
+},
+{
+  "title": "Beef Garlic Rice",
+  "ingredients": [
+    "1 cup beef",
+    "2 cups cooked rice",
+    "2 cloves garlic"
+  ],
+  "steps": [
+    "Cook beef in a pan.",
+    "Sauté garlic.",
+    "Add rice and mix.",
+    "Cook briefly.",
+    "Serve hot."
+  ]
+},
+
+{
+  "title": "Shrimp Butter Fry",
+  "ingredients": [
+    "1 cup shrimp",
+    "2 tablespoons butter",
+    "2 cloves garlic"
+  ],
+  "steps": [
+    "Melt butter in a pan.",
+    "Add garlic and sauté.",
+    "Add shrimp and cook.",
+    "Cook until pink.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Tofu Garlic Fry",
+  "ingredients": [
+    "1 cup tofu",
+    "2 cloves garlic",
+    "2 tablespoons oil"
+  ],
+  "steps": [
+    "Heat oil in a pan.",
+    "Add garlic and sauté.",
+    "Add tofu and cook.",
+    "Turn for even cooking.",
+    "Serve warm."
+  ]
+},
+{
+  "title": "Simple Vegetable Rice",
+  "ingredients": [
+    "1 cup vegetables",
+    "2 cups cooked rice"
+  ],
+  "steps": [
+    "Cook vegetables lightly.",
+    "Add rice and mix.",
+    "Cook until heated.",
+    "Serve warm.",
+    "Enjoy."
+  ]
+},
+{
+  "title": "Garlic Bread Simple",
+  "ingredients": [
+    "2 slices bread",
+    "2 cloves garlic",
+    "1 tablespoon butter"
+  ],
+  "steps": [
+    "Mix garlic and butter.",
+    "Spread on bread.",
+    "Toast until golden.",
+    "Serve warm.",
+    "Enjoy."
+  ]
+},
+{
+  "title": "Tuna Egg Sandwich",
+  "ingredients": [
+    "2 slices bread",
+    "1/2 cup tuna",
+    "1 egg"
+  ],
+  "steps": [
+    "Cook egg.",
+    "Mix with tuna.",
+    "Spread on bread.",
+    "Close sandwich.",
+    "Serve."
+  ]
+},
+
+{
+  "title": "Milk Chocolate Drink",
+  "ingredients": [
+    "1 cup milk",
+    "2 tablespoons chocolate",
+    "1 tablespoon sugar"
+  ],
+  "steps": [
+    "Heat milk.",
+    "Add chocolate and sugar.",
+    "Stir well.",
+    "Serve warm.",
+    "Enjoy."
+  ]
 }
 ]
