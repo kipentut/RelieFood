@@ -1,33 +1,63 @@
+/* ================================== MOBILE APP CSS ================================= */
+/* 
+   MOBILE APP OPTIMIZATION FOR RELIEFOOD
+   This stylesheet is optimized for mobile applications.
+   
+   REQUIRED: Add this viewport meta tag to your HTML <head>:
+   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+   
+   Features:
+   ✅ Touch-friendly sizes (48px minimum for interactive elements)
+   ✅ Responsive design (320px - 430px+ screens)
+   ✅ Mobile-optimized spacing and padding
+   ✅ Accessibility support (reduced motion, dark mode)
+   ✅ Smooth touch interactions
+   ✅ Working drawer navigation
+*/
+
 /* ================================== COMMON STYLES ================================= */
 
 /* ---------- RESET / BODY ---------- */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: black;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #e9f0ea;
+    color: #222;
+
     display: flex;
     justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+    -webkit-font-smoothing: antialiased;
+    -webkit-touch-callout: none;
 }
 
 /* ---------- APP CONTAINER ---------- */
 .app-container {
-    width: 390px;
+    width: 100%;
+    max-width: 390px;
     min-height: 100vh;
-    background: #c8dad1;
-    border-radius: 25px;
+
+    background: #f7faf6;
+    border-radius: 30px;
     overflow: hidden;
 
     display: flex;
     flex-direction: column;
-}
 
-/* ---------- NAVBAR ---------- */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #FFFFFF;
-    padding: 14px 18px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+
+    position: relative;
 }
 
 /* ---------- LOGO ---------- */
@@ -48,33 +78,127 @@ body {
     font-weight: bold;
     color: #2e9f6b;
     font-size: 16px;
-    line-height: 1;
 }
 
-/* ---------- MENU ---------- */
-.menu {
-    position: relative;
-    cursor: pointer;
-}
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-.dropdown {
-    display: none;
-    position: absolute;
-    right: 0;
     background: white;
-    border-radius: 10px;
-    padding: 10px;
+    padding: 16px 18px;
+    border-bottom: 1px solid #eee;
+    
+    min-height: 56px;
 }
 
-.dropdown a {
-    display: block;
+.menu-btn {
+    font-size: 22px;
+    cursor: pointer;
     padding: 8px;
-    text-decoration: none;
-    color: black;
+    margin: -8px;
+    
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    -webkit-tap-highlight-color: transparent;
 }
 
-.dropdown a:hover {
-    background: #f0f0f0;
+/* DRAWER */
+.drawer {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 350px;
+    max-height: 80vh;
+
+    background: #f4f4f4;
+
+    border-radius: 0;
+
+    display: none;
+    flex-direction: column;
+
+    z-index: 999;
+    
+    -webkit-user-select: none;
+    user-select: none;
+    border-radius: 5%;
+}
+
+/* HEADER */
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px;
+    border-bottom: 1px solid #eee;
+    
+    min-height: 56px;
+}
+
+.drawer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    color: #2e9f6b;
+}
+
+.close-btn {
+    font-size: 22px;
+    cursor: pointer;
+    padding: 8px;
+    margin: -8px;
+    
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* LINKS */
+.drawer-links {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.drawer-links a {
+    text-decoration: none;
+    color: #333;
+
+    padding: 14px 16px;
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    min-height: 48px;
+    
+    transition: 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ACTIVE ITEM */
+.drawer-links a.active {
+    background: #d1fae5;
+    color: #2e9f6b;
+    font-weight: bold;
 }
 
 /* ---------- MAIN CONTENT ---------- */
@@ -82,73 +206,154 @@ body {
     flex: 1;
     overflow-y: auto;
     padding: 20px;
+    text-align: left;
+
+    -webkit-overflow-scrolling: touch;
 }
 
 /* ---------- TEXT ---------- */
 .main-content h2 {
-    font-size: 22px;
-    margin-bottom: 12px;
+    font-size: 28px;
+    margin: 12px 0 10px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
 }
 
 .main-content p {
+    font-size: 15px;
+    color: #58615f;
+    margin-bottom: 18px;
+    line-height: 1.65;
+}
+
+.subtitle {
     font-size: 14px;
-    color: #333;
-    margin-bottom: 12px;
+    color: #6b6b6b;
+    line-height: 1.6;
+    margin-bottom: 18px;
 }
 
 /* ---------- IMAGE ---------- */
 .app-image {
     width: 100%;
-    height: 200px;
+    height: 180px;
     object-fit: cover;
-    border-radius: 12px;
+    border-radius: 14px;
     margin-bottom: 15px;
 }
 
 /* ---------- BUTTONS ---------- */
-button {
+button,
+a.primary-btn,
+a.gradient,
+a.outline-btn {
+    min-width: 0;
     width: 100%;
-    padding: 14px;
-    border-radius: 12px;
+    padding: 16px 18px;
+    border-radius: 16px;
     border: none;
     cursor: pointer;
-    margin-top: 10px;
-    font-size: 14px;
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: 700;
+
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+    
+    min-height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:active,
+a.primary-btn:active,
+a.gradient:active,
+a.outline-btn:active {
+    transform: translateY(1px) scale(0.99);
+}
+
+button:disabled,
+a.primary-btn:disabled,
+a.gradient:disabled,
+a.outline-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .primary-btn {
-    background: #eaeaea;
-    color: #2e9f6b;
-    font-weight: bold;
-}
-
-.outline-btn {
-    border: 2px solid white;
-    background: transparent;
+    background: linear-gradient(135deg, #2e9f6b 0%, #6cc596 100%);
     color: white;
+    box-shadow: 0 14px 32px rgba(46,159,107,0.24);
 }
 
 .gradient {
-    background: linear-gradient(to right, #5a5be6, #d63384);
+    background: linear-gradient(135deg, #7b61ff 0%, #ff2a7f 100%);
     color: white;
+    box-shadow: 0 14px 32px rgba(123,97,255,0.20);
 }
 
-/* ---------- FORM INPUTS ---------- */
+.outline-btn {
+    background: #ffffff;
+    color: #2e9f6b;
+    border: 1px solid rgba(46,159,107,0.35);
+    box-shadow: inset 0 0 0 0 rgba(46,159,107,0.08);
+}
+
+.outline-btn:hover {
+    background: #f1f8f1;
+}
+
+.index-btn {
+    display: inline-flex;
+    justify-content: center;
+}
+
+/* ---------- INPUTS ---------- */
 input {
     width: 100%;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+    padding: 14px;
+
+    border-radius: 12px;
+    border: 1px solid #ddd;
+
     margin-top: 10px;
+    font-size: 14px;
+
+    outline: none;
+    
+    min-height: 48px;
+    
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+input:focus {
+    border: 1px solid #2e9f6b;
+    box-shadow: 0 0 0 3px rgba(46,159,107,0.1);
 }
 
 /* ---------- CARDS ---------- */
 .form-card,
-.output-card {
-    background: #f2f2f2;
+.output-card,
+.signup-card,
+.info-card,
+.storage-section,
+.recipe-title,
+.storage-tip {
+    background: white;
     padding: 18px;
-    border-radius: 15px;
-    margin-top: 15px;
+    border-radius: 24px;
+    margin-top: 16px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+}
+
+.recipe-title,
+.storage-header,
+.drawer-links a {
+    border-radius: 20px;
 }
 
 /* ---------- UTILITY ---------- */
@@ -156,161 +361,217 @@ input {
     text-align: center;
 }
 
-/* ---------- GLOBAL FIX ---------- */
-* {
-    box-sizing: border-box;
+.section-heading {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #1a1a1a;
 }
 
-/* ================================== INDEX PAGE STYLES ================================= */
+.light-text {
+    color: #6d6d6d;
+}
+/* ================================== INDEX PAGE ================================= */
 
-/* ---------- HERO SECTION ---------- */
 .hero-section {
     background: linear-gradient(to bottom right, #0f7a4c, #179b5c);
     color: white;
-    height: 100%;
+    text-align: center;
+    padding-bottom: 16px;
 }
 
 .tag {
-    display: inline-block;
-    background: #49a97c;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 12px;
-    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.16);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    margin: 0 auto 16px;
+    color: #f9fdf8;
+    letter-spacing: 0.02em;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.16);
+}
+
+.generate-tag {
+    color: #2e9f6b;
 }
 
 .hero-image {
     width: 100%;
-    border-radius: 12px;
+    border-radius: 14px;
 }
 
-/* ================================== SIGNUP PAGE STYLES ================================= */
+.index-generate,
+.index-info {
+    text-decoration: none;
+}
+/* ================================== SIGNUP / SIGNIN ================================= */
 
-/* ---------- TABS ---------- */
 .tab-header {
     display: flex;
-    background: #e5e5e5;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    background: #edf3ed;
+    border-radius: 18px;
+    margin-bottom: 20px;
+    gap: 6px;
+    overflow: hidden;
 }
 
 .tab {
     flex: 1;
-    padding: 12px;
-    background: transparent;
+    padding: 14px 12px;
     border: none;
-    cursor: pointer;
-    font-weight: bold;
-    text-align: center;
+    background: transparent;
+    color: #4f6058;
+    font-weight: 700;
+    
+    min-height: 52px;
+    font-size: 15px;
+    
+    transition: background-color 0.2s ease, color 0.2s ease;
+    
+    -webkit-tap-highlight-color: transparent;
 }
 
 .tab.active {
     background: #2e9f6b;
     color: white;
+    border-radius: 18px;
 }
 
 /* ---------- SIGNUP CARD ---------- */
 .signup-card {
-    background: #f2f2f2;
+    background: white;
     padding: 18px;
-    border-radius: 15px;
-    margin-top: 15px;
-}
+    border-radius: 18px;
 
-.signup-card h2 {
-    text-align: center;
-    margin-bottom: 8px;
-    color: #2e9f6b;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
-
-.signup-card p.subtitle {
-    text-align: center;
-    font-size: 13px;
-    color: #555;
-    margin-bottom: 15px;
-}
-
-.signup-card input {
-    width: 100%;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    margin-top: 10px;
-}
-
-.signup-card .primary-btn {
-    background: #2e9f6b;
-    color: white;
-    font-weight: bold;
-    margin-top: 15px;
-}
-
-.switch-form {
-    text-align: center;
-    font-size: 13px;
-    margin-top: 12px;
-}
-
-.switch-form a {
-    color: #2e9f6b;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* ================================== SIGNIN PAGE STYLES ================================= */
 
 /* ---------- FORM LOGO ---------- */
 .form-logo {
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 .form-logo-img {
-    width: 100px;
-    height: 100px;
-    background: #ffffff;
-    border-radius: 15px;
+    width: 90px;
+    height: 90px;
+    background: white;
+    border-radius: 50%;
 }
 
+/* ---------- FORGOT ---------- */
 .forgot {
     text-align: right;
     font-size: 12px;
     color: #2e9f6b;
+    margin-top: 8px;
 }
 
-/* ================================== GENERATE PAGE STYLES ================================= */
+.continue-guest-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    max-width: 220px;
+    padding: 12px 16px;
+    margin: 16px auto 0;
+    border-radius: 18px;
+    text-align: center;
+    box-sizing: border-box;
+    background: #e0e0e0;
+    color: #333;
+    border: 1px solid #bdbdbd;
+    font-size: 14px;
+    font-weight: 700;
+}
 
-/* ---------- INPUT ROW ---------- */
+.continue-guest-btn.outline-btn {
+    border-width: 1px;
+    background: #f7f7f7;
+}
+
+.guest-continue {
+    text-align: right;
+    font-size: 12px;
+    color: #2e9f6b;
+    margin-top: 8px;
+}
+
+.switch-sign {
+    color: #2e9f6b;
+    text-decoration: none;
+}
+
+/* ================================== GENERATE PAGE ================================= */
+
 .input-row {
     display: flex;
     gap: 10px;
+    margin-bottom: 10px;
 }
 
-/* ---------- ADD BUTTON ---------- */
+.input-row input {
+    flex: 1;
+}
+
 .add-btn {
-    width: 50px;
+    width: 55px;
+    height: 55px;
     background: #2e9f6b;
     color: white;
+    border-radius: 12px;
+    
+    flex-shrink: 0;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    
+    padding: 0;
+    margin-top: 10px;
+    
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* ---------- OUTPUT ---------- */
 .no-recipe {
-    color: #555;
+    text-align: center;
+    margin-top: 30px;
+    color: #777;
 }
 
+/* ---------- RECIPE CARDS ---------- */
 .recipe-title {
-    background: #e6e6e6;
-    padding: 12px;
-    border-radius: 10px;
-    margin-top: 10px;
+    background: white;
+    padding: 16px;
+
+    border-radius: 16px;
+    margin-top: 12px;
+
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 600;
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+    transition: 0.2s;
+    
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    
+    -webkit-tap-highlight-color: transparent;
 }
 
-.recipe-title:hover {
-    background: #dcdcdc;
+.recipe-title:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
+/* ---------- OUTPUT DETAILS ---------- */
 .output-card h3 {
     margin-top: 0;
 }
@@ -323,32 +584,19 @@ input {
     margin-bottom: 6px;
 }
 
-/* ---------- PORTION OUTPUT ---------- */
-#portionOutput {
-    margin-top: 10px;
-    font-size: 14px;
+.tag-content {
+    text-align: center;
 }
+/* ================================== INFOGRAPHIC ================================= */
 
-.form-card input {
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-.form-card {
-    padding: 18px;
-    overflow: hidden;
-}
-
-/* ================================== INFOGRAPHIC PAGE STYLES ================================= */
-
-/* ---------- INFO CARDS ---------- */
 .info-card {
     display: flex;
     gap: 12px;
     align-items: center;
+
     background: #e6e6e6;
-    padding: 12px;
-    border-radius: 12px;
+    padding: 14px;
+    border-radius: 14px;
     margin-top: 12px;
 }
 
@@ -358,40 +606,281 @@ input {
     padding: 10px;
     border-radius: 10px;
 }
+/* ===== FOOD WASTE CARDS ===== */
 
-.source {
-    font-size: 11px;
-    margin-top: 10px;
+.info-highlight {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    padding: 18px;
+    margin-top: 16px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
 }
 
-/* ================================== STORAGE PAGE STYLES ================================= */
+/* ICON */
+.highlight-icon {
+    width: 52px;
+    height: 52px;
 
-/* ---------- STORAGE CARDS ---------- */
-.tip-card {
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+    color: white;
+
+    flex-shrink: 0;
+}
+
+/* COLORS */
+.red {
+    background: #fde2e2;
+    border: 1px solid #fca5a5;
+}
+
+.red .highlight-icon {
+    background: #ef4444;
+}
+
+.orange {
+    background: #fff3e0;
+    border: 1px solid #f59e0b;
+}
+
+.orange .highlight-icon {
+    background: #f97316;
+}
+
+.yellow {
+    background: #fef9c3;
+    border: 1px solid #eab308;
+}
+
+.yellow .highlight-icon {
+    background: #eab308;
+}
+
+/* TEXT */
+.info-highlight h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 800;
+    color: #111;
+}
+
+.info-highlight p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #444;
+    text-align: left;
+}
+
+.info-highlight small {
+    font-size: 11px;
+    color: #777;
+}
+
+/* ================================== STORAGE ================================= */
+
+.storage-section {
+    background: transparent;
+    border-radius: 22px;
+    overflow: hidden;
+    margin-top: 14px;
+    box-shadow: none;
+}
+
+.storage-header {
+    color: white;
+    padding: 16px 18px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px;
-    border-radius: 12px;
-    margin-top: 12px;
-    color: white;
     cursor: pointer;
+    
+    min-height: 64px;
 }
 
-.light-green { background: #9bd33b; }
-.green { background: #2e9f6b; }
-.red { background: #c63b3b; }
-.yellow { background: #d4af37; }
+.rice { background: #f97316; }
+.veg { background: #22c55e; }
+.meat { background: #ef4444; }
+.general { background: #eab308; }
 
-/* ---------- EXPANDABLE CONTENT ---------- */
-.tip-content {
+.storage-body {
     display: none;
-    background: white;
-    padding: 12px;
-    border-radius: 10px;
-    margin-top: 5px;
+    padding: 0 18px 18px;
+    background: transparent;
 }
 
-.tip-content.show {
+.storage-body.show {
     display: block;
+}
+
+.storage-tip {
+    display: flex;
+    gap: 12px;
+    background: rgba(255,255,255,0.85);
+    padding: 14px;
+    border-radius: 18px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(46,159,107,0.08);
+}
+
+.tip-icon {
+    width: 40px;
+    height: 40px;
+    background: #f97316;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+}
+
+.tip-text h4 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.tip-text p {
+    margin: 4px 0 0;
+    font-size: 13px;
+    text-align: left;
+}
+
+/* ================================== RESPONSIVE DESIGN ================================= */
+
+/* Mobile: Small screens (320px - 360px) */
+@media (max-width: 360px) {
+    .navbar {
+        padding: 12px 14px;
+    }
+    
+    .main-content {
+        padding: 12px;
+    }
+    
+    .main-content h2 {
+        font-size: 20px;
+    }
+    
+    .main-content p {
+        font-size: 13px;
+    }
+    
+    button {
+        padding: 14px;
+        font-size: 14px;
+        margin-top: 8px;
+    }
+    
+    input {
+        padding: 12px;
+        font-size: 13px;
+    }
+    
+    .form-card,
+    .output-card,
+    .signup-card {
+        padding: 14px;
+    }
+    
+    .add-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+    }
+    
+    .info-highlight h3 {
+        font-size: 20px;
+    }
+    
+    .tag {
+        font-size: 11px;
+        padding: 5px 12px;
+    }
+}
+
+/* Mobile: Medium screens (361px - 430px) */
+@media (min-width: 361px) and (max-width: 430px) {
+    /* Default styles already optimized for this range */
+}
+
+/* Tablet: Larger screens (431px and up) */
+@media (min-width: 431px) {
+    .app-container {
+        border-radius: 25px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        margin: 20px;
+    }
+    
+    body {
+        padding: 20px;
+    }
+}
+
+/* Landscape orientation */
+@media (orientation: landscape) and (max-height: 500px) {
+    .app-container {
+        height: 100vh;
+        max-height: 100vh;
+    }
+    
+    .navbar {
+        padding: 12px 16px;
+    }
+    
+    .main-content {
+        padding: 12px;
+    }
+    
+    .drawer {
+        height: 80%;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .form-card,
+    .output-card,
+    .signup-card {
+        background: #1a1a1a;
+        color: #e0e0e0;
+    }
+    
+    input {
+        background: #2a2a2a;
+        color: #e0e0e0;
+        border-color: #444;
+    }
+    
+    .main-content p {
+        color: #b0b0b0;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    button:active {
+        transform: none;
+    }
+    
+    .recipe-title:active {
+        transform: none;
+    }
 }

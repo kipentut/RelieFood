@@ -3,95 +3,135 @@
 <head>
     <title>Storage Tips</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 </head>
 
-<body class="page-bg">
+<body>
 
 <div class="app-container">
 
     <!-- NAVBAR -->
     <div class="navbar">
-        <div class="logo">
-            <a href="/index" class="logo-link">
+        <a href="/index" class="logo-link">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo-img">
+            <span class="logo-text">RelieFood</span>
+        </a>
+
+        <div class="menu-btn" onclick="openDrawer()">☰</div>
+    </div>
+
+    <!-- DRAWER MENU -->
+    <div class="drawer" id="drawerMenu">
+        <div class="drawer-header">
+            <div class="drawer-brand">
                 <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo-img">
-                <span class="logo-text">RelieFood</span>
-            </a>
-        </div>
-        <div class="menu" onclick="toggleMenu()">☰
-            <div class="dropdown" id="dropdownMenu">
-                <a href="/index">Home</a>
-                <a href="/generate">Generate</a>
-                <a href="/infographic">Infographics</a>
-                <a href="/storage">Storage Tips</a>
-                <a href="/portion">Portion Calculator</a>
+                <span>RelieFood</span>
             </div>
+            <div class="close-btn" onclick="closeDrawer()">✕</div>
+        </div>
+
+        <div class="drawer-links">
+            <a href="/index">🍃 Home</a>
+            <a href="/generate">🍽 Recipe Generator</a>
+            <a href="/storage" class="active">📦 Food Storage Tips</a>
+            <a href="/infographic">📊 Infographics</a>
+            <a href="/portion">⚖️ Portion Calculator</a>
         </div>
     </div>
 
-    <!-- MAIN CONTENT -->
     <div class="main-content">
 
-        <!-- TITLE -->
-        <h2 class="center">Food Storage & Management Tips</h2>
-
-        <!-- DESCRIPTION -->
-        <p class="center">
-            Learn how to properly store ingredients to maximize freshness and minimize waste.
-        </p>
-
-        <!-- IMAGE -->
+        <h2>Food Storage Tips</h2>
+        <p>Tap each section to view tips</p>
         <img src="{{ url_for('static', filename='images/cook.png') }}" class="app-image">
-
-        <!-- BUTTON CARDS -->
-        <div class="tip-card light-green" onclick="toggleTip('rice')">
-            <span>🍚 Rice Storage</span>
-            <span>▼</span>
-        </div>
-        <div class="tip-content" id="rice">
-            Store rice in airtight containers and keep it in a cool, dry place.
-        </div>
-
-        <div class="tip-card green" onclick="toggleTip('vegetable')">
-            <span>🥬 Vegetable Storage</span>
-            <span>▼</span>
-        </div>
-        <div class="tip-content" id="vegetable">
-           Refrigerate leafy vegetables and keep them dry to avoid spoilage.
+        <!-- RICE -->
+        <div class="storage-section">
+            <div class="storage-header rice" onclick="toggleSection('rice')">
+                🍚 Rice Storage <span id="icon-rice">▼</span>
+            </div>
+            <div class="storage-body" id="rice">
+                <div class="storage-tip">
+                    <div class="tip-icon">⏱</div>
+                    <div class="tip-text">
+                        <h4>Cool Before Storage</h4>
+                        <p>Let rice cool before storing.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="tip-card red" onclick="toggleTip('meat')">
-         <span>🍖 Meat Storage</span>
-         <span>▼</span>
-        </div>
-        <div class="tip-content" id="meat">
-         Store meat in the freezer if not used immediately. Keep it sealed properly.
+        <!-- VEGETABLE -->
+        <div class="storage-section">
+            <div class="storage-header veg" onclick="toggleSection('veg')">
+                🥬 Vegetables <span id="icon-veg">▼</span>
+            </div>
+            <div class="storage-body" id="veg">
+                <div class="storage-tip">
+                    <div class="tip-icon">💧</div>
+                    <div class="tip-text">
+                        <h4>Keep Dry</h4>
+                        <p>Moisture causes spoilage.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="tip-card yellow" onclick="toggleTip('general')">
-         <span>📦 General Food Waste Prevention Tips</span>
-         <span>▼</span>
+        <!-- MEAT -->
+        <div class="storage-section">
+            <div class="storage-header meat" onclick="toggleSection('meat')">
+                🍖 Meat Storage <span id="icon-meat">▼</span>
+            </div>
+            <div class="storage-body" id="meat">
+                <div class="storage-tip">
+                    <div class="tip-icon">❄️</div>
+                    <div class="tip-text">
+                        <h4>Freeze Properly</h4>
+                        <p>Store meat sealed in freezer.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="tip-content" id="general">
-            Plan meals, check expiration dates, and store food correctly.
+
+        <!-- GENERAL -->
+        <div class="storage-section">
+            <div class="storage-header general" onclick="toggleSection('general')">
+                📦 General Tips <span id="icon-general">▼</span>
+            </div>
+            <div class="storage-body" id="general">
+                <div class="storage-tip">
+                    <div class="tip-icon">📅</div>
+                    <div class="tip-text">
+                        <h4>Check Expiry</h4>
+                        <p>Always check food dates.</p>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
 
 </div>
 
 <script>
-function toggleMenu() {
-    const menu = document.getElementById("dropdownMenu");
-    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+function openDrawer() {
+    document.getElementById("drawerMenu").style.display = "flex";
 }
-window.onclick = function(event) {
-    if (!event.target.closest('.menu')) {
-        document.getElementById("dropdownMenu").style.display = "none";
+
+function closeDrawer() {
+    document.getElementById("drawerMenu").style.display = "none";
+}
+
+function toggleSection(id) {
+    const section = document.getElementById(id);
+    const icon = document.getElementById("icon-" + id);
+
+    section.classList.toggle("show");
+
+    if (section.classList.contains("show")) {
+        icon.textContent = "▲";
+    } else {
+        icon.textContent = "▼";
     }
-}
-function toggleTip(id) {
-    const content = document.getElementById(id);
-    content.classList.toggle("show");
 }
 </script>
 

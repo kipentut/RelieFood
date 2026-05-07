@@ -3,7 +3,7 @@
 <head>
     <title>Generate</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 </head>
 
 <body class="page-bg">
@@ -12,28 +12,38 @@
 
     <!-- NAVBAR -->
     <div class="navbar">
-        <div class="logo">
-            <a href="/index" class="logo-link">
+        <a href="/index" class="logo-link">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo-img">
+            <span class="logo-text">RelieFood</span>
+        </a>
+
+        <div class="menu-btn" onclick="openDrawer()">☰</div>
+    </div>
+
+    <!-- DRAWER MENU -->
+    <div class="drawer" id="drawerMenu">
+        <div class="drawer-header">
+            <div class="drawer-brand">
                 <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo-img">
-                <span class="logo-text">RelieFood</span>
-            </a>
-        </div>
-        <div class="menu" onclick="toggleMenu()">☰
-            <div class="dropdown" id="dropdownMenu">
-                <a href="/index">Home</a>
-                <a href="/generate">Generate</a>
-                <a href="/infographic">Infographics</a>
-                <a href="/storage">Storage Tips</a>
-                <a href="/portion">Portion Calculator</a>
+                <span>RelieFood</span>
             </div>
+            <div class="close-btn" onclick="closeDrawer()">✕</div>
+        </div>
+
+        <div class="drawer-links">
+            <a href="/index">🍃 Home</a>
+            <a href="/generate" class="active">🍽 Recipe Generator</a>
+            <a href="/storage">📦 Food Storage Tips</a>
+            <a href="/infographic">📊 Infographics</a>
+            <a href="/portion">⚖️ Portion Calculator</a>
         </div>
     </div>
 
     <!-- MAIN CONTENT -->
     <div class="main-content">
-
-        <div class="tag center">AI-Powered Recipe Generator</div>
-
+        <div class="tag-content">
+            <div class="tag center generate-tag">AI-Powered Recipe Generator</div>
+        </div>
         <h2 class="center">What’s In Your Kitchen?</h2>
 
         <p class="center">
@@ -78,15 +88,12 @@ let ingredientsReady = false;
 let lastResults = [];
 
 /* MENU */
-function toggleMenu() {
-    const menu = document.getElementById("dropdownMenu");
-    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+function openDrawer() {
+    document.getElementById("drawerMenu").style.display = "flex";
 }
 
-window.onclick = function(event) {
-    if (!event.target.closest('.menu')) {
-        document.getElementById("dropdownMenu").style.display = "none";
-    }
+function closeDrawer() {
+    document.getElementById("drawerMenu").style.display = "none";
 }
 
 /* ADD BUTTON */

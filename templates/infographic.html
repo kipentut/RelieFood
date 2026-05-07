@@ -3,7 +3,7 @@
 <head>
     <title>Food Waste</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 </head>
 
 <body class="page-bg">
@@ -12,27 +12,77 @@
 
     <!-- NAVBAR -->
     <div class="navbar">
-        <div class="logo">
-            <a href="/index" class="logo-link">
+        <a href="/index" class="logo-link">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo-img">
+            <span class="logo-text">RelieFood</span>
+        </a>
+
+        <div class="menu-btn" onclick="openDrawer()">☰</div>
+    </div>
+
+    <!-- DRAWER MENU -->
+    <div class="drawer" id="drawerMenu">
+        <div class="drawer-header">
+            <div class="drawer-brand">
                 <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo-img">
-                <span class="logo-text">RelieFood</span>
-            </a>
-        </div>
-        <div class="menu" onclick="toggleMenu()">☰
-            <div class="dropdown" id="dropdownMenu">
-                <a href="/index">Home</a>
-                <a href="/generate">Generate</a>
-                <a href="/infographic">Infographics</a>
-                <a href="/storage">Storage Tips</a>
-                <a href="/portion">Portion Calculator</a>
+                <span>RelieFood</span>
             </div>
+            <div class="close-btn" onclick="closeDrawer()">✕</div>
+        </div>
+
+        <div class="drawer-links">
+            <a href="/index">🍃 Home</a>
+            <a href="/generate">🍽 Recipe Generator</a>
+            <a href="/storage">📦 Food Storage Tips</a>
+            <a href="/infographic" class="active">📊 Infographics</a>
+            <a href="/portion">⚖️ Portion Calculator</a>
         </div>
     </div>
 
     <!-- MAIN CONTENT -->
     <div class="main-content">
 
-        <!-- TITLE -->
+        <!-- ===== FOOD WASTE CRISIS ===== -->
+        <h2 class="center">The Food Waste Crisis</h2>
+
+        <p class="center">
+            Every day, millions of tons of food are wasted while people go hungry.
+        </p>
+
+        <!-- CARD 1 -->
+        <div class="info-highlight red">
+            <div class="highlight-icon">📉</div>
+            <div>
+                <h3>19%</h3>
+                <p>of global food production is wasted annually</p>
+                <small>Source: United Nations, 2024</small>
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="info-highlight orange">
+            <div class="highlight-icon">👥</div>
+            <div>
+                <h3>783M</h3>
+                <p>people affected by hunger in 2022</p>
+                <small>Source: UNEP, 2024</small>
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="info-highlight yellow">
+            <div class="highlight-icon">🍽</div>
+            <div>
+                <h3>1B+</h3>
+                <p>meals wasted daily across all households</p>
+                <small>Source: UNEP, 2024</small>
+            </div>
+        </div>
+
+        <!-- ✅ SPACE BETWEEN SECTIONS -->
+        <div style="height: 25px;"></div>
+
+        <!-- ===== NEXT SECTION ===== -->
         <h2>Common Wasted Foods in the Philippines</h2>
 
         <!-- IMAGE -->
@@ -44,7 +94,7 @@
             specific food items that are most frequently wasted:
         </p>
 
-        <!-- RICE CARD -->
+        <!-- RICE -->
         <div class="info-card">
             <div class="icon-box">🍚</div>
             <div class="text-box">
@@ -55,7 +105,7 @@
             </div>
         </div>
 
-        <!-- VEGETABLE CARD -->
+        <!-- VEGETABLES -->
         <div class="info-card">
             <div class="icon-box">🥬</div>
             <div class="text-box">
@@ -66,7 +116,7 @@
             </div>
         </div>
 
-        <!-- MEAT CARD -->
+        <!-- MEAT -->
         <div class="info-card">
             <div class="icon-box">🍖</div>
             <div class="text-box">
@@ -85,16 +135,14 @@
     </div>
 </div>
 
+<!-- SCRIPT -->
 <script>
-function toggleMenu() {
-    const menu = document.getElementById("dropdownMenu");
-    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+function openDrawer() {
+    document.getElementById("drawerMenu").style.display = "flex";
 }
 
-window.onclick = function(event) {
-    if (!event.target.closest('.menu')) {
-        document.getElementById("dropdownMenu").style.display = "none";
-    }
+function closeDrawer() {
+    document.getElementById("drawerMenu").style.display = "none";
 }
 </script>
 

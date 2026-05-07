@@ -3,7 +3,7 @@
 <head>
     <title>Sign In</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 </head>
 
 <body class="page-bg">
@@ -16,9 +16,11 @@
         <!-- TAB HEADER -->
         <div class="tab-header">
             <button class="tab active">Sign In</button>
-            <a href="/signup">
-                <button class="tab">Sign Up</button>
-            </a>
+            <button class="tab">
+                <a href="/signup" class="switch-sign">
+                    Sign Up
+                </a>
+            </button>
         </div>
 
         <!-- FORM CARD -->
@@ -48,24 +50,13 @@
 
                 <button type="submit" class="primary-btn">Sign In</button>
             </form>
-
+            <p class="guest-continue"><a href="/index" class="outline-btn continue-guest-btn">Continue as Guest</a></p>
         </div>
-
     </div>
 
 </div>
 
 <script>
-function toggleMenu() {
-    const menu = document.getElementById("dropdownMenu");
-    menu.style.display = (menu.style.display === "block") ? "none" : "block";
-}
-
-window.onclick = function(event) {
-    if (!event.target.closest('.menu')) {
-        document.getElementById("dropdownMenu").style.display = "none";
-    }
-}
 </script>
 
 </body>
