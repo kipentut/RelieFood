@@ -1,23 +1,5 @@
-/* ================================== MOBILE APP CSS ================================= */
-/* 
-   MOBILE APP OPTIMIZATION FOR RELIEFOOD
-   This stylesheet is optimized for mobile applications.
-   
-   REQUIRED: Add this viewport meta tag to your HTML <head>:
-   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-   
-   Features:
-   ✅ Touch-friendly sizes (48px minimum for interactive elements)
-   ✅ Responsive design (320px - 430px+ screens)
-   ✅ Mobile-optimized spacing and padding
-   ✅ Accessibility support (reduced motion, dark mode)
-   ✅ Smooth touch interactions
-   ✅ Working drawer navigation
-*/
-
-/* ================================== COMMON STYLES ================================= */
-
-/* ---------- RESET / BODY ---------- */
+/* ================================== GLOBAL STYLES ================================= */
+/* --- Reset / Base --- */
 * {
     box-sizing: border-box;
 }
@@ -33,32 +15,30 @@ body {
     font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background: #e9f0ea;
     color: #222;
-
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    
     -webkit-font-smoothing: antialiased;
     -webkit-touch-callout: none;
     overscroll-behavior-y: contain;
 }
 
-/* ---------- APP CONTAINER ---------- */
+.page-bg {
+    background: #e9f0ea;
+}
+
+/* --- App Shell --- */
 .app-container {
     width: 100%;
     max-width: 390px;
     min-height: 100vh;
-
     background: #f7faf6;
     border-radius: 30px;
     overflow: hidden;
-
     display: flex;
     flex-direction: column;
-
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
-
     position: relative;
 }
 
@@ -67,7 +47,6 @@ body {
     animation: pageEnter 0.42s ease both;
 }
 
-/* ---------- LOGO ---------- */
 .logo-link {
     display: flex;
     align-items: center;
@@ -76,8 +55,8 @@ body {
 }
 
 .logo-img {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     object-fit: contain;
 }
 
@@ -87,16 +66,14 @@ body {
     font-size: 16px;
 }
 
-/* NAVBAR */
+/* --- Navigation --- */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     background: white;
     padding: 16px 18px;
     border-bottom: 1px solid #eee;
-    
     min-height: 56px;
 }
 
@@ -105,13 +82,11 @@ body {
     cursor: pointer;
     padding: 8px;
     margin: -8px;
-    
     min-width: 44px;
     min-height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    
     -webkit-tap-highlight-color: transparent;
     transition: transform 0.18s cubic-bezier(.2,.8,.2,1), background-color 0.18s ease;
     border-radius: 14px;
@@ -123,25 +98,18 @@ body {
     background: rgba(46,159,107,0.1);
 }
 
-/* DRAWER */
+/* --- Drawer --- */
 .drawer {
     position: absolute;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 350px;
     max-height: 80vh;
-
     background: #ffffff;
-
-    border-radius: 0;
-
     display: flex;
     flex-direction: column;
-
     z-index: 999;
-    
     -webkit-user-select: none;
     user-select: none;
     border-radius: 5%;
@@ -161,7 +129,6 @@ body {
     visibility: visible;
 }
 
-/* DRAWER OVERLAY */
 .drawer::before {
     content: "";
     position: fixed;
@@ -181,16 +148,32 @@ body {
     pointer-events: auto;
 }
 
-/* HEADER */
+.drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.drawer-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
 .drawer-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     padding: 18px;
     border-bottom: 1px solid #eee;
-    
     min-height: 56px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
 .drawer-brand {
@@ -206,25 +189,16 @@ body {
     cursor: pointer;
     padding: 8px;
     margin: -8px;
-    
     min-width: 44px;
     min-height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    
     -webkit-tap-highlight-color: transparent;
     transition: transform 0.18s cubic-bezier(.2,.8,.2,1), background-color 0.18s ease, box-shadow 0.18s ease;
     border-radius: 14px;
 }
 
-.close-btn:active {
-    transform: scale(0.88);
-    background: rgba(46,159,107,0.15);
-    box-shadow: 0 0 0 4px rgba(46,159,107,0.1);
-}
-
-/* LINKS */
 .drawer-links {
     padding: 18px;
     display: flex;
@@ -237,16 +211,12 @@ body {
 .drawer-links a {
     text-decoration: none;
     color: #222;
-
     padding: 14px 16px;
     border-radius: 14px;
-
     display: flex;
     align-items: center;
     gap: 10px;
-    
     min-height: 48px;
-    
     opacity: 0;
     transform: translateX(-16px);
     animation: none;
@@ -270,25 +240,23 @@ body {
     box-shadow: 0 4px 12px rgba(46,159,107,0.15);
 }
 
-/* ACTIVE ITEM */
 .drawer-links a.active {
     background: #d1fae5;
     color: #2e9f6b;
     font-weight: bold;
 }
 
-/* ---------- MAIN CONTENT ---------- */
+/* --- Page Content --- */
 .main-content {
     flex: 1;
+    min-height: calc(100vh - 56px);
     overflow-y: auto;
     padding: 20px;
     text-align: left;
-
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
 }
 
-/* ---------- TEXT ---------- */
 .main-content h2 {
     font-size: 28px;
     margin: 12px 0 10px;
@@ -310,7 +278,6 @@ body {
     margin-bottom: 18px;
 }
 
-/* ---------- IMAGE ---------- */
 .app-image {
     width: 100%;
     height: 180px;
@@ -319,7 +286,7 @@ body {
     margin-bottom: 15px;
 }
 
-/* ---------- BUTTONS ---------- */
+/* --- Button System --- */
 button,
 a.primary-btn,
 a.gradient,
@@ -333,15 +300,12 @@ a.outline-btn {
     margin-top: 12px;
     font-size: 16px;
     font-weight: 700;
-
     transition: transform 0.18s cubic-bezier(.2,.8,.2,1), box-shadow 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
-    
     min-height: 52px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -394,21 +358,16 @@ a.outline-btn:disabled {
     justify-content: center;
 }
 
-/* ---------- INPUTS ---------- */
+/* --- Form Controls --- */
 input {
     width: 100%;
     padding: 14px;
-
     border-radius: 12px;
     border: 1px solid #ddd;
-
     margin-top: 10px;
     font-size: 14px;
-
     outline: none;
-    
     min-height: 48px;
-    
     -webkit-appearance: none;
     appearance: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
@@ -420,10 +379,9 @@ input:focus {
     transform: translateY(-1px);
 }
 
-/* ---------- CARDS ---------- */
+/* --- Card System --- */
 .form-card,
 .output-card,
-.signup-card,
 .info-card,
 .recipe-title,
 .storage-tip {
@@ -475,7 +433,7 @@ input:focus {
     border-radius: 20px;
 }
 
-/* ---------- UTILITY ---------- */
+/* --- Utility --- */
 .center {
     text-align: center;
 }
@@ -490,13 +448,57 @@ input:focus {
 .light-text {
     color: #555;
 }
-/* ================================== INDEX PAGE ================================= */
 
+/* ================================== SPLASH PAGE ================================= */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    background: linear-gradient(135deg, #65c096 0%, #8bd8af 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    touch-action: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.splash-content {
+    text-align: center;
+    animation: splashEnter 0.8s ease both;
+}
+
+.splash-logo {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+    animation: logoPulse 2s ease-in-out infinite;
+}
+
+.splash-text {
+    font-size: 32px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.02em;
+    animation: textFade 1s ease both 0.3s;
+}
+
+/* ================================== INDEX PAGE ================================= */
 .hero-section {
     background: linear-gradient(to bottom right, #0f7a4c, #179b5c);
     color: white;
     text-align: center;
     padding-bottom: 16px;
+    min-height: calc(100vh - 56px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .tag {
@@ -513,124 +515,31 @@ input:focus {
     box-shadow: inset 0 0 0 1px rgba(255,255,255,0.16);
 }
 
-.generate-tag {
-    color: #2e9f6b;
+.hero-title {
+    font-size: 34px;
+    margin: 0 0 12px;
+    font-weight: 900;
+    line-height: 1.05;
 }
 
 .hero-image {
     width: 100%;
     border-radius: 14px;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: grid;
+    gap: 14px;
+    margin-top: 16px;
 }
 
 .index-generate,
 .index-info {
     text-decoration: none;
 }
-/* ================================== SIGNUP / SIGNIN ================================= */
-
-.tab-header {
-    display: flex;
-    align-items: center;
-    border-radius: 18px;
-    margin-bottom: 20px;
-    gap: 6px;
-    overflow: hidden;
-}
-
-.tab {
-    flex: 1;
-    padding: 14px 12px;
-    border: none;
-    background: transparent;
-    color: #333;
-    font-weight: 700;
-    
-    height: 52px;
-    font-size: 15px;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    
-    transition: background-color 0.2s ease, color 0.2s ease;
-    
-    -webkit-tap-highlight-color: transparent;
-}
-
-.tab.active {
-    background: #2e9f6b;
-    color: white;
-    border-radius: 12px;
-}
-
-/* ---------- SIGNUP CARD ---------- */
-.signup-card {
-    background: white;
-    padding: 18px;
-    border-radius: 18px;
-
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* ---------- FORM LOGO ---------- */
-.form-logo {
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-.form-logo-img {
-    width: 90px;
-    height: 90px;
-    background: white;
-    border-radius: 50%;
-}
-
-/* ---------- FORGOT ---------- */
-.forgot {
-    text-align: right;
-    font-size: 12px;
-    color: #2e9f6b;
-    margin-top: 8px;
-}
-
-.continue-guest-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-    max-width: 220px;
-    padding: 12px 16px;
-    margin: 16px auto 0;
-    border-radius: 18px;
-    text-align: center;
-    box-sizing: border-box;
-    background: #e0e0e0;
-    color: #333;
-    border: 1px solid #bdbdbd;
-    font-size: 14px;
-    font-weight: 700;
-}
-
-.continue-guest-btn.outline-btn {
-    border-width: 1px;
-    background: #f7f7f7;
-}
-
-.guest-continue {
-    text-align: center;
-    font-size: 12px;
-    color: #2e9f6b;
-    margin-top: 8px;
-}
-
-.switch-sign {
-    color: #2e9f6b;
-    text-decoration: none;
-}
 
 /* ================================== GENERATE PAGE ================================= */
-
 .input-row {
     display: flex;
     gap: 10px;
@@ -647,21 +556,16 @@ input:focus {
     background: #2e9f6b;
     color: white;
     border-radius: 12px;
-    
     flex-shrink: 0;
-    
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    
     padding: 0;
     margin-top: 10px;
-    
     -webkit-tap-highlight-color: transparent;
 }
 
-/* ---------- OUTPUT ---------- */
 .no-recipe {
     text-align: center;
     margin-top: 30px;
@@ -697,27 +601,20 @@ input:focus {
     animation: loadingDots 1.1s steps(4, end) infinite;
 }
 
-/* ---------- RECIPE CARDS ---------- */
 .recipe-title {
     background: white;
     padding: 16px;
-
     border-radius: 16px;
     margin-top: 12px;
-
     cursor: pointer;
     font-weight: 600;
-
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-
     justify-content: space-between;
     gap: 10px;
     transition: transform 0.22s cubic-bezier(.2,.8,.2,1), box-shadow 0.22s ease, background-color 0.22s ease;
-    
     min-height: 48px;
     display: flex;
     align-items: center;
-    
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -751,7 +648,6 @@ input:focus {
     transform: rotate(180deg);
 }
 
-/* ---------- OUTPUT DETAILS ---------- */
 .output-card h3 {
     margin-top: 0;
 }
@@ -772,13 +668,12 @@ input:focus {
 .tag-content {
     text-align: center;
 }
-/* ================================== INFOGRAPHIC ================================= */
 
+/* ================================== INFOGRAPHIC PAGE ================================= */
 .info-card {
     display: flex;
     gap: 12px;
     align-items: center;
-
     background: #e6e6e6;
     padding: 14px;
     border-radius: 14px;
@@ -791,39 +686,29 @@ input:focus {
     padding: 10px;
     border-radius: 10px;
 }
-/* ===== FOOD WASTE CARDS ===== */
 
 .info-highlight {
     display: flex;
     align-items: center;
     gap: 16px;
-
     padding: 18px;
     margin-top: 16px;
-
     border-radius: 18px;
-
     box-shadow: 0 6px 15px rgba(0,0,0,0.12);
 }
 
-/* ICON */
 .highlight-icon {
     width: 52px;
     height: 52px;
-
     border-radius: 14px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     font-size: 22px;
     color: white;
-
     flex-shrink: 0;
 }
 
-/* COLORS */
 .red {
     background: #fde2e2;
     border: 1px solid #fca5a5;
@@ -851,7 +736,6 @@ input:focus {
     background: #eab308;
 }
 
-/* TEXT */
 .info-highlight h3 {
     margin: 0;
     font-size: 24px;
@@ -871,15 +755,13 @@ input:focus {
     color: #777;
 }
 
-/* ================================== STORAGE ================================= */
-
+/* ================================== STORAGE PAGE ================================= */
 .storage-section {
-    background: transparent;
+    background: rgb(232, 224, 138);
     border-radius: 22px;
     overflow: hidden;
     margin-top: 14px;
     box-shadow: none;
-    background: rgb(232, 224, 138);
     transition: transform 0.24s ease, box-shadow 0.24s ease;
 }
 
@@ -892,12 +774,10 @@ input:focus {
     padding: 16px 18px;
     font-weight: 700;
     letter-spacing: 0.01em;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    
     min-height: 64px;
     transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
 }
@@ -922,7 +802,7 @@ input:focus {
 }
 
 .storage-body.show {
-    max-height: 800px;
+    max-height: 1200px;
     opacity: 1;
     padding: 18px 18px 18px;
 }
@@ -962,7 +842,7 @@ input:focus {
     text-align: left;
 }
 
-
+/* ================================== ANIMATIONS ================================= */
 @keyframes pageEnter {
     from {
         opacity: 0;
@@ -1052,129 +932,160 @@ input:focus {
     75%, 100% { content: "..."; }
 }
 
-/* ================================== RESPONSIVE DESIGN ================================= */
+@keyframes splashEnter {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
 
-/* Mobile: Small screens (320px - 360px) */
+@keyframes logoPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes textFade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================================== RESPONSIVE DESIGN ================================= */
 @media (max-width: 360px) {
     .navbar {
         padding: 12px 14px;
     }
-    
+
     .main-content {
         padding: 12px;
     }
-    
+
     .main-content h2 {
         font-size: 20px;
     }
-    
+
     .main-content p {
         font-size: 13px;
     }
-    
+
     button {
         padding: 14px;
         font-size: 14px;
         margin-top: 8px;
     }
-    
+
     input {
         padding: 12px;
         font-size: 13px;
     }
-    
+
     .form-card,
-    .output-card,
-    .signup-card {
+    .output-card {
         padding: 14px;
     }
-    
+
     .add-btn {
         width: 50px;
         height: 50px;
         font-size: 22px;
     }
-    
+
     .info-highlight h3 {
         font-size: 20px;
     }
-    
+
     .tag {
         font-size: 11px;
         padding: 5px 12px;
     }
+
+    .splash-logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .splash-text {
+        font-size: 28px;
+    }
 }
 
-/* Mobile: Medium screens (361px - 430px) */
 @media (min-width: 361px) and (max-width: 430px) {
     /* Default styles already optimized for this range */
 }
 
-/* Tablet: Larger screens (431px and up) */
 @media (min-width: 431px) {
     .app-container {
         border-radius: 25px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.25);
         margin: 20px;
     }
-    
+
     body {
         padding: 20px;
     }
 }
 
-/* Landscape orientation */
 @media (orientation: landscape) and (max-height: 500px) {
     .app-container {
         height: 100vh;
         max-height: 100vh;
     }
-    
+
     .navbar {
         padding: 12px 16px;
     }
-    
+
     .main-content {
         padding: 12px;
     }
-    
+
     .drawer {
         height: 80%;
     }
 }
 
-/* Dark mode support */
 @media (prefers-color-scheme: dark) {
     .form-card,
-    .output-card,
-    .signup-card {
+    .output-card {
         background: #1a1a1a;
         color: #e0e0e0;
     }
-    
+
     input {
         background: #2a2a2a;
         color: #e0e0e0;
         border-color: #444;
     }
-    
+
     .main-content p {
         color: #b0b0b0;
     }
 }
 
-/* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
     * {
         animation: none !important;
         transition: none !important;
         scroll-behavior: auto !important;
     }
-    
+
     button:active {
         transform: none;
     }
-    
+
     .recipe-title:active {
         transform: none;
     }

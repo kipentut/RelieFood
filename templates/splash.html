@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RelieFood</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+</head>
+
+<body class="page-bg">
+
+<div class="splash-screen" id="splashScreen">
+    <div class="splash-content">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" class="splash-logo">
+        <div class="splash-text">RelieFood</div>
+    </div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        const splash = document.getElementById('splashScreen');
+        splash.style.opacity = '0';
+        splash.style.transform = 'scale(0.9)';
+
+        setTimeout(function() {
+            window.location.href = '/index';
+        }, 600);
+    }, 2000);
+});
+</script>
+
+</body>
+</html>

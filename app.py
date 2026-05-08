@@ -13,9 +13,6 @@ load_dotenv()
 API_KEY = os.getenv("GOOGLE_API_KEY")
 client = genai.Client(api_key=API_KEY)
 
-# ---------- TEMPORARY USER STORE ----------
-USERS = {}
-
 
 # ---------- LOAD DATA ----------
 def load_recipes():
@@ -143,63 +140,20 @@ Return ONLY JSON:
             ]
         }
 
-# ---------- SIGNUP ----------
-@app.route("/signup", methods=["POST"])
-def signup():
-    email = request.form.get("email")
-    password = request.form.get("password")
-    confirm_password = request.form.get("confirm_password")
-
-    if email in USERS:
-        return "User already exists", 400
-
-    if password != confirm_password:
-        return "Passwords do not match", 400
-
-    USERS[email] = password
-    session["user"] = email
-    return redirect(url_for("index"))
-
-
-# ---------- SIGNIN ----------
-@app.route("/signin", methods=["POST"])
-def signin():
-    email = request.form.get("email")
-    password = request.form.get("password")
-
-    if email in USERS and USERS[email] == password:
-        session["user"] = email
-        return redirect(url_for("index"))
-    else:
-        return "Invalid email or password", 401
-
-
-@app.route("/signin_page")
-def signin_page():
-    return render_template("signin.html")
-
-
-@app.route("/logout")
-def logout():
-    session.pop("user", None)
-    return redirect(url_for("signin_page"))
-
-
 # ---------- ROUTES ----------
 @app.route("/")
 def home():
-    return redirect(url_for("signin_page"))
+    return redirect(url_for("splash"))
 
 
-@app.route("/signup")
-def signup_page():
-    return render_template("signup.html")
+@app.route("/splash")
+def splash():
+    return render_template("splash.html")
 
 
 @app.route("/index")
 def index():
     return render_template("index.html")
-
 
 @app.route("/generate")
 def generate():
