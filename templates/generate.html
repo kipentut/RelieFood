@@ -64,7 +64,7 @@
                 Generate Recipes
             </button>
 
-            <button class="gradient" onclick="randomRecipe()">
+            <button class="gradient" onclick="handleRandomClick(event)">
                 Random Recipe Inspiration
             </button>
 
@@ -89,11 +89,11 @@ let lastResults = [];
 
 /* MENU */
 function openDrawer() {
-    document.getElementById("drawerMenu").style.display = "flex";
+    document.getElementById("drawerMenu").classList.add("open");
 }
 
 function closeDrawer() {
-    document.getElementById("drawerMenu").style.display = "none";
+    document.getElementById("drawerMenu").classList.remove("open");
 }
 
 /* ADD BUTTON */
@@ -120,8 +120,16 @@ async function generateRecipes() {
     }
 
     const ingredients = document.getElementById("ingredients").value;
+    const outputEl = document.getElementById("output");
+    const outputCard = document.querySelector(".output-card");
 
-    document.getElementById("output").innerHTML = "Generating recipes...";
+    outputCard?.classList.add("loading");
+    outputEl.innerHTML = `
+        <div class="loading-state">
+            <div class="spinner"></div>
+            <div class="dot-loader">Generating recipes</div>
+        </div>
+    `;
 
     const res = await fetch("/generate_recipe", {
         method: "POST",
@@ -132,24 +140,28 @@ async function generateRecipes() {
     const data = await res.json();
 
     if (!data.length) {
-        document.getElementById("output").innerHTML =
+        outputEl.innerHTML =
             "<p>No matching recipes found.</p>";
+        outputCard?.classList.remove("loading");
         return;
     }
 
     lastResults = data;
 
-    let html = "<p><b>Select a Recipe:</b></p>";
+    let html = "<p><b>Select a Recipe:</b></p><div class=\"recipe-list\">";
 
     data.forEach((item, index) => {
         html += `
-            <div class="recipe-title" onclick="loadRecipe(${index})">
+            <div class="recipe-title" onclick="handleRecipeClick(event, ${index})">
                 ${item.title}
             </div>
         `;
     });
 
-    document.getElementById("output").innerHTML = html;
+    html += "</div>";
+    outputEl.innerHTML = html;
+    outputCard?.classList.remove("loading");
+    outputEl.classList.add("fade-in");
 }
 
 /* LOAD RECIPE */
@@ -201,9 +213,43 @@ function displayRecipe(recipe) {
 }
 
 /* RANDOM RECIPE */
-async function randomRecipe() {
-    document.getElementById("output").innerHTML = "Loading random recipe...";
+function clickFeedback(el) {
+    if (!el) return;
+    el.classList.add("click-feedback");
+    window.setTimeout(() => el.classList.remove("click-feedback"), 220);
+}
 
+function handleRandomClick(event) {
+    clickFeedback(event.currentTarget);
+    const outputEl = document.getElementById("output");
+    const outputCard = document.querySelector(".output-card");
+
+    outputCard?.classList.add("loading");
+    outputEl.innerHTML = `
+        <div class="loading-state">
+            <div class="spinner"></div>
+            <div class="dot-loader">Loading random recipe</div>
+        </div>
+    `;
+    randomRecipe();
+}
+
+async function randomRecipe() {
+    const res = await fetch("/random_recipe");
+    const recipe = await res.json();
+
+    const outputCard = document.querySelector(".output-card");
+    outputCard?.classList.remove("loading");
+    displayRecipe(recipe);
+}
+
+function handleRecipeClick(event, index) {
+    const el = event.currentTarget;
+    clickFeedback(el);
+    loadRecipe(index);
+}
+
+async function randomRecipe() {
     const res = await fetch("/random_recipe");
     const recipe = await res.json();
 
