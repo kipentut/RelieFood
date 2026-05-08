@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.secret_key = "supersecretkey"
 load_dotenv()
 
-# ✅ GEMINI CLIENT (FIXED)
+# GEMINI CLIENT
 API_KEY = os.getenv("GOOGLE_API_KEY")
 client = genai.Client(api_key=API_KEY)
 
@@ -54,7 +54,6 @@ def find_recipes(user_input):
         for ing in item["ingredients"]:
             words = ing.lower().split()
             for w in words:
-                # ✅ FIXED CLEANING
                 clean_word = w.strip(",().")
                 if clean_word:
                     ingredient_set.add(normalize(clean_word))
@@ -63,7 +62,6 @@ def find_recipes(user_input):
 
         matches = sum(1 for ing in essential if ing in user_set)
 
-        # ✅ already fixed
         if matches >= 1:
             results.append((matches, item))
 
@@ -109,9 +107,8 @@ Return ONLY JSON:
 
         response_text = ""
 
-        # ✅ SIMPLIFIED STREAM LOOP
         for chunk in client.models.generate_content_stream(
-            model="gemini-3-flash-preview",  # ✅ THIS IS YOUR WORKING MODEL
+            model="gemini-3-flash-preview",  # GENAI MODEL
             contents=contents
         ):
             if chunk.text:
@@ -119,7 +116,7 @@ Return ONLY JSON:
 
         print("\n✅ AI RAW OUTPUT:\n", response_text)
 
-        # ✅ extract JSON only
+        # extract JSON only
         match = re.search(r"\{.*\}", response_text, re.DOTALL)
         if match:
             return json.loads(match.group(0))
@@ -186,14 +183,14 @@ def generate_recipe():
 
     results = find_recipes(ingredients)
 
-    # ✅ DATABASE FIRST
+    # DATABASE FIRST
     if results:
         return jsonify([
             {"title": r["title"], "ai": False}
             for r in results
         ])
 
-    # ✅ AI FALLBACK
+    # AI FALLBACK
     ai_recipe = generate_ai_recipe(ingredients)
 
     return jsonify([{
