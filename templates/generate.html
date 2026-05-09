@@ -214,11 +214,11 @@ async function loadRecipe(index) {
     });
 
     const recipe = await res.json();
-    displayRecipe(recipe);
+    displayRecipe(recipe, true);
 }
 
 /* DISPLAY FUNCTION */
-function displayRecipe(recipe) {
+function displayRecipe(recipe, showBack = false) {
     let html = `
         <h3>${recipe.title}</h3>
         <p><b>Ingredients:</b></p>
@@ -235,11 +235,15 @@ function displayRecipe(recipe) {
         html += `<li>${step}</li>`;
     });
 
-    html += `</ol>
-        <button class="outline-btn" onclick="showRecipeList()">
-            ← Back to recipes
-        </button>
-    `;
+    html += "</ol>";
+
+    if (showBack) {
+        html += `
+            <button class="outline-btn" onclick="showRecipeList()">
+                ← Back to recipes
+            </button>
+        `;
+    }
 
     document.getElementById("output").innerHTML = html;
 }
@@ -272,7 +276,7 @@ async function randomRecipe() {
 
     const outputCard = document.querySelector(".output-card");
     outputCard?.classList.remove("loading");
-    displayRecipe(recipe);
+    displayRecipe(recipe, false);
 }
 
 function handleRecipeClick(event, index) {
