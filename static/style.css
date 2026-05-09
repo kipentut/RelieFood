@@ -1189,6 +1189,39 @@ input:focus {
         border-color: #444;
         border-top-color: #4ade80;
     }
+
+    .info-card {
+        background: #1f1f1f;
+        border: 1px solid #333;
+        color: #e0e0e0;
+    }
+
+    .info-card .text-box h3,
+    .info-card .text-box p {
+        color: #e0e0e0;
+    }
+
+    .info-highlight p,
+    .storage-tip p {
+        color: #d3d3d3;
+    }
+
+    .info-highlight small {
+        color: #b0b0b0;
+    }
+
+    .storage-tip {
+        background: #1f1f1f;
+        border-color: rgba(255,255,255,0.08);
+    }
+
+    .storage-tip .tip-text h4 {
+        color: #f0f0f0;
+    }
+
+    .storage-tip .tip-text p {
+        color: #d3d3d3;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
