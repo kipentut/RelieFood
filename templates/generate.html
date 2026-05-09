@@ -164,6 +164,34 @@ async function generateRecipes() {
     outputEl.classList.add("fade-in");
 }
 
+function showRecipeList() {
+    const outputEl = document.getElementById("output");
+
+    if (!lastResults.length) {
+        outputEl.innerHTML = `
+            <div class="no-recipe">
+                🍳
+                <p>No recipes yet</p>
+                <span>Add ingredients and click “Generate Recipes”.</span>
+            </div>
+        `;
+        return;
+    }
+
+    let html = "<p><b>Select a Recipe:</b></p><div class=\"recipe-list\">";
+
+    lastResults.forEach((item, index) => {
+        html += `
+            <div class="recipe-title" onclick="handleRecipeClick(event, ${index})">
+                ${item.title}
+            </div>
+        `;
+    });
+
+    html += "</div>";
+    outputEl.innerHTML = html;
+}
+
 /* LOAD RECIPE */
 async function loadRecipe(index) {
 
@@ -207,7 +235,11 @@ function displayRecipe(recipe) {
         html += `<li>${step}</li>`;
     });
 
-    html += "</ol>";
+    html += `</ol>
+        <button class="outline-btn" onclick="showRecipeList()">
+            ← Back to recipes
+        </button>
+    `;
 
     document.getElementById("output").innerHTML = html;
 }
@@ -247,13 +279,6 @@ function handleRecipeClick(event, index) {
     const el = event.currentTarget;
     clickFeedback(el);
     loadRecipe(index);
-}
-
-async function randomRecipe() {
-    const res = await fetch("/random_recipe");
-    const recipe = await res.json();
-
-    displayRecipe(recipe);
 }
 
 </script>
