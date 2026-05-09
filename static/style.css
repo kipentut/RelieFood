@@ -1058,10 +1058,69 @@ input:focus {
 }
 
 @media (prefers-color-scheme: dark) {
+    body {
+        background: #121212;
+        color: #e0e0e0;
+    }
+
+    .page-bg {
+        background: #121212;
+    }
+
+    .app-container {
+        background: #1e1e1e;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar {
+        background: #2a2a2a;
+        border-bottom-color: #444;
+    }
+
+    .logo-text {
+        color: #4ade80;
+    }
+
+    .drawer {
+        background: #2a2a2a;
+        border-right: 1px solid #444;
+    }
+
+    .drawer-header {
+        border-bottom: 1px solid #444;
+    }
+
+    .drawer-brand span {
+        color: #4ade80;
+    }
+
+    .drawer-links a {
+        color: #e0e0e0;
+    }
+
+    .drawer-links a.active {
+        background: rgba(74, 222, 128, 0.1);
+        color: #4ade80;
+    }
+
+    .drawer-links a:hover {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .tag {
+        background: linear-gradient(135deg, #2e9f6b 0%, #4ade80 100%);
+        color: #1a1a1a;
+    }
+
+    h2, h3 {
+        color: #e0e0e0;
+    }
+
     .form-card,
     .output-card {
         background: #1a1a1a;
         color: #e0e0e0;
+        border: 1px solid #444;
     }
 
     input {
@@ -1070,8 +1129,65 @@ input:focus {
         border-color: #444;
     }
 
+    input::placeholder {
+        color: #888;
+    }
+
+    .add-btn {
+        background: #4ade80;
+        color: #1a1a1a;
+    }
+
+    .primary-btn {
+        background: linear-gradient(135deg, #2e9f6b 0%, #4ade80 100%);
+        box-shadow: 0 14px 32px rgba(46, 159, 107, 0.3);
+    }
+
+    .gradient {
+        background: linear-gradient(135deg, #7b61ff 0%, #a855f7 100%);
+        box-shadow: 0 14px 32px rgba(123, 97, 255, 0.3);
+    }
+
+    .outline-btn {
+        background: #2a2a2a;
+        color: #4ade80;
+        border-color: rgba(74, 222, 128, 0.5);
+    }
+
+    .outline-btn:hover {
+        background: rgba(74, 222, 128, 0.1);
+    }
+
+    .recipe-title {
+        background: #2a2a2a;
+        color: #e0e0e0;
+        border: 1px solid #444;
+    }
+
+    .recipe-title:hover {
+        background: rgba(74, 222, 128, 0.1);
+        border-color: #4ade80;
+    }
+
+    .no-recipe {
+        color: #888;
+    }
+
+    .no-recipe p {
+        color: #b0b0b0;
+    }
+
     .main-content p {
         color: #b0b0b0;
+    }
+
+    .loading-state {
+        background: #1a1a1a;
+    }
+
+    .spinner {
+        border-color: #444;
+        border-top-color: #4ade80;
     }
 }
 
