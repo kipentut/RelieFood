@@ -3,7 +3,7 @@ import json
 import random
 import os
 from dotenv import load_dotenv
-from google import genai
+import google.generativeai as genai
 
 app = Flask(__name__)
 app.secret_key = "supersecretkey"
