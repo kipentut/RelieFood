@@ -2,6 +2,7 @@ const CACHE_NAME = "reliefood-v1";
 
 const urlsToCache = [
   "/",
+  "/splash",
   "/index",
   "/static/style.css"
 ];
