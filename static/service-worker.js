@@ -1,7 +1,23 @@
+const CACHE_NAME = "reliefood-v1";
+
+const urlsToCache = [
+  "/",
+  "/index",
+  "/static/style.css"
+];
+
 self.addEventListener("install", function (event) {
-    console.log("Service Worker Installed");
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(function (cache) {
+      return cache.addAll(urlsToCache);
+    })
+  );
 });
 
 self.addEventListener("fetch", function (event) {
-    // basic pass-through
+  event.respondWith(
+    caches.match(event.request).then(function (response) {
+      return response || fetch(event.request);
+    })
+  );
 });
