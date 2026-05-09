@@ -4,8 +4,10 @@ import random
 import os
 from dotenv import load_dotenv
 from google import genai
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 app.secret_key = "supersecretkey"
 load_dotenv()
 
@@ -25,7 +27,6 @@ IGNORE_INGREDIENTS = {
     "salt", "pepper", "oil", "butter",
     "sugar", "water", "soy", "sauce"
 }
-
 
 # ---------- NORMALIZE WORD ----------
 def normalize(word):
@@ -188,7 +189,10 @@ def portion_page():
 # ---------- API: GENERATE ----------
 @app.route("/generate_recipe", methods=["POST"])
 def generate_recipe():
-    data = request.get_json()
+    data = request.get_json(silent=True) or {}
+    
+    print("DEBUG DATA:", data)
+
     ingredients = data.get("ingredients", "").strip()
 
     if not ingredients:
@@ -196,14 +200,12 @@ def generate_recipe():
 
     results = find_recipes(ingredients)
 
-    # DATABASE FIRST
     if results:
         return jsonify([
             {"title": r["title"], "ai": False}
             for r in results
         ])
 
-    # AI FALLBACK
     ai_recipe = generate_ai_recipe(ingredients)
 
     return jsonify([{

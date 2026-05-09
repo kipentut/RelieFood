@@ -118,12 +118,23 @@ document.querySelector(".add-btn").addEventListener("click", function() {
 
 /* GENERATE */
 async function generateRecipes() {
+
     if (!ingredientsReady) {
         alert("Click the + button first.");
         return;
     }
 
-    const ingredients = document.getElementById("ingredients").value;
+    const inputElement = document.getElementById("ingredients");
+    let ingredients = inputElement.value.trim();
+
+    // ✅ DEBUG
+    console.log("INGREDIENTS SENT:", ingredients);
+
+    if (!ingredients) {
+        alert("Enter ingredients first.");
+        return;
+    }
+
     const outputEl = document.getElementById("output");
     const outputCard = document.querySelector(".output-card");
 
@@ -135,37 +146,62 @@ async function generateRecipes() {
         </div>
     `;
 
-    const res = await fetch("/generate_recipe", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({ ingredients })
-    });
+    try {
+        const res = await fetch("/generate_recipe", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ ingredients })
+        });
 
-    const data = await res.json();
+        if (!res.ok) {
+            throw new Error("Server error");
+        }
 
-    if (!data.length) {
-        outputEl.innerHTML =
-            "<p>No matching recipes found.</p>";
-        outputCard?.classList.remove("loading");
-        return;
-    }
+        const data = await res.json();
+        console.log("RESPONSE DATA:", data);
 
-    lastResults = data;
+        
+        if (!data || !data.length) {
+            outputEl.innerHTML = "<p>No matching recipes found.</p>";
+            outputCard?.classList.remove("loading");
+            return;
+        }
 
-    let html = "<p><b>Select a Recipe:</b></p><div class=\"recipe-list\">";
+        lastResults = data;
 
-    data.forEach((item, index) => {
-        html += `
-            <div class="recipe-title" onclick="handleRecipeClick(event, ${index})">
-                ${item.title}
-            </div>
+        let html = `
+            <p><b>Select a Recipe:</b></p>
+            <div class="recipe-list">
         `;
-    });
 
-    html += "</div>";
-    outputEl.innerHTML = html;
-    outputCard?.classList.remove("loading");
-    outputEl.classList.add("fade-in");
+        data.forEach((item, index) => {
+            html += `
+                <div class="recipe-title" onclick="handleRecipeClick(event, ${index})">
+                    ${item.title}
+                </div>
+            `;
+        });
+
+        html += "</div>";
+
+        outputEl.innerHTML = html;
+        outputEl.classList.add("fade-in");
+        outputCard?.classList.remove("loading");
+
+    } catch (err) {
+
+        console.error("FETCH ERROR:", err);
+
+        outputEl.innerHTML = `
+            <p style="color:red;">
+                Error generating recipe. Try again.
+            </p>
+        `;
+
+        outputCard?.classList.remove("loading");
+    }
 }
 
 function showRecipeList() {
