@@ -99,6 +99,12 @@ async function calculatePortion() {
         <p><b>Recommended Portion:</b> ${data.portion} servings</p>
     `;
 }
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/static/service-worker.js')
+    .then(() => console.log("Service Worker Registered"));
+}
+
 </script>
 
 </body>
