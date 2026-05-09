@@ -3,14 +3,14 @@ import json
 import random
 import os
 from dotenv import load_dotenv
-import google.generativeai as genai
+from google import genai
 
 app = Flask(__name__)
 app.secret_key = "supersecretkey"
 load_dotenv()
 
 # GEMINI CLIENT
-API_KEY = os.getenv("GOOGLE_API_KEY")
+API_KEY = os.environ.get("GOOGLE_API_KEY")
 client = genai.Client(api_key=API_KEY)
 
 
