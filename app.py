@@ -42,6 +42,15 @@ def get_user_set(user_input):
 
 
 # ---------- MATCH RECIPES ----------
+def ingredient_matches(ingredient, user_set):
+    if ingredient in user_set:
+        return True
+    for user_item in user_set:
+        if user_item in ingredient or ingredient in user_item:
+            return True
+    return False
+
+
 def find_recipes(user_input):
     recipes = load_recipes()
     user_set = get_user_set(user_input)
@@ -58,16 +67,20 @@ def find_recipes(user_input):
                 if clean_word:
                     ingredient_set.add(normalize(clean_word))
 
-        essential = [ing for ing in ingredient_set if ing not in IGNORE_INGREDIENTS]
+        essential = {ing for ing in ingredient_set if ing not in IGNORE_INGREDIENTS}
 
-        matches = sum(1 for ing in essential if ing in user_set)
+        if not essential:
+            continue
 
-        if matches >= 1:
-            results.append((matches, item))
+        match_count = sum(1 for ing in essential if ingredient_matches(ing, user_set))
 
-    results.sort(reverse=True, key=lambda x: x[0])
+        if match_count > 0:
+            score = match_count / max(1, len(essential))
+            results.append((score, match_count, item))
 
-    return [item for _, item in results[:3]]
+    results.sort(reverse=True, key=lambda x: (x[0], x[1]))
+
+    return [item for _, _, item in results]
 
 
 # ---------- RANDOM ----------
