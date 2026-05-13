@@ -128,7 +128,7 @@ Return ONLY JSON:
             if chunk.text:
                 response_text += chunk.text
 
-        print("\n✅ AI RAW OUTPUT:\n", response_text)
+        print("\nAI RAW OUTPUT:\n", response_text)
 
         # extract JSON only
         match = re.search(r"\{.*\}", response_text, re.DOTALL)
@@ -138,7 +138,7 @@ Return ONLY JSON:
         raise ValueError("No JSON found")
 
     except Exception as e:
-        print("❌ AI ERROR:", e)
+        print("AI ERROR:", e)
 
         return {
             "title": "AI Generated Recipe",

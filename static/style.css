@@ -1023,7 +1023,7 @@ input:focus {
 }
 
 @media (min-width: 361px) and (max-width: 430px) {
-    /* Default styles already optimized for this range */
+    /* Default style */
 }
 
 @media (min-width: 431px) {
