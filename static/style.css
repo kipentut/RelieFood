@@ -13,8 +13,8 @@ html {
 body {
     margin: 0;
     font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #f3f7f2;
-    color: #1c1c1c;
+    background: #e9f0ea;
+    color: #222;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +25,7 @@ body {
 }
 
 .page-bg {
-    background: #f3f7f2;
+    background: #e9f0ea;
 }
 
 /* --- App Shell --- */
@@ -33,7 +33,7 @@ body {
     width: 100%;
     max-width: 390px;
     min-height: 100vh;
-    background: #ffffff;
+    background: #f7faf6;
     border-radius: 30px;
     overflow: hidden;
     display: flex;
@@ -210,7 +210,7 @@ body {
 
 .drawer-links a {
     text-decoration: none;
-    color: #111;
+    color: #222;
     padding: 14px 16px;
     border-radius: 14px;
     display: flex;
@@ -266,14 +266,14 @@ body {
 
 .main-content p {
     font-size: 15px;
-    color: #2b2b2b;
+    color: #333;
     margin-bottom: 18px;
     line-height: 1.65;
 }
 
 .subtitle {
     font-size: 14px;
-    color: #333;
+    color: #444;
     line-height: 1.6;
     margin-bottom: 18px;
 }
@@ -333,13 +333,17 @@ a.outline-btn:disabled {
 .primary-btn {
     background: linear-gradient(135deg, #2e9f6b 0%, #6cc596 100%);
     color: white;
-    box-shadow: 0 14px 32px rgba(46,159,107,0.24);
+    box-shadow: 0 18px 36px rgba(46,159,107,0.28);
+    padding: 20px 18px;
+    font-size: 17px;
 }
 
 .gradient {
     background: linear-gradient(135deg, #7b61ff 0%, #ff2a7f 100%);
     color: white;
-    box-shadow: 0 14px 32px rgba(123,97,255,0.20);
+    box-shadow: 0 12px 24px rgba(123,97,255,0.16);
+    padding: 14px 18px;
+    font-size: 15px;
 }
 
 .outline-btn {
@@ -691,10 +695,10 @@ input:focus {
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 18px;
+    padding: 20px;
     margin-top: 16px;
     border-radius: 18px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.12);
 }
 
 .highlight-icon {
@@ -710,30 +714,30 @@ input:focus {
 }
 
 .red {
-    background: #fde2e2;
-    border: 1px solid #fca5a5;
+    background: #fee2e2;
+    border: 1px solid #f87171;
 }
 
 .red .highlight-icon {
-    background: #ef4444;
+    background: #dc2626;
 }
 
 .orange {
-    background: #fff3e0;
-    border: 1px solid #f59e0b;
+    background: #fff7ed;
+    border: 1px solid #fb923c;
 }
 
 .orange .highlight-icon {
-    background: #f97316;
+    background: #ea580c;
 }
 
 .yellow {
-    background: #fef9c3;
-    border: 1px solid #eab308;
+    background: #fefce8;
+    border: 1px solid #f59e0b;
 }
 
 .yellow .highlight-icon {
-    background: #eab308;
+    background: #ca8a04;
 }
 
 .info-highlight h3 {
@@ -746,23 +750,22 @@ input:focus {
 .info-highlight p {
     margin: 4px 0;
     font-size: 14px;
-    color: #333;
+    color: #262626;
     text-align: left;
 }
 
 .info-highlight small {
     font-size: 11px;
-    color: #777;
+    color: #4b5563;
 }
 
 /* ================================== STORAGE PAGE ================================= */
 .storage-section {
-    background: #f7fbf6;
+    background: rgb(232, 224, 138);
     border-radius: 22px;
     overflow: hidden;
     margin-top: 14px;
     box-shadow: none;
-    border: 1px solid rgba(46,159,107,0.12);
     transition: transform 0.24s ease, box-shadow 0.24s ease;
 }
 
@@ -788,10 +791,10 @@ input:focus {
     filter: brightness(1.03);
 }
 
-.rice { background: #dc6b28; }
-.veg { background: #15803d; }
-.meat { background: #b91c1c; }
-.general { background: #a16207; }
+.rice { background: #f97316; }
+.veg { background: #22c55e; }
+.meat { background: #ef4444; }
+.general { background: #eab308; }
 
 .storage-body {
     max-height: 0;
@@ -811,11 +814,11 @@ input:focus {
 .storage-tip {
     display: flex;
     gap: 12px;
-    background: #ffffff;
+    background: rgba(255,255,255,0.85);
     padding: 14px;
     border-radius: 18px;
     margin-bottom: 10px;
-    border: 1px solid rgba(46,159,107,0.14);
+    border: 1px solid rgba(46,159,107,0.08);
 }
 
 .tip-icon {
