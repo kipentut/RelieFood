@@ -248,17 +248,20 @@ def calculate_portion(age, sex, height, weight):
         age = int(age)
         height = float(height)
         weight = float(weight)
+        sex_value = str(sex).strip().lower()
 
-        if sex.lower() == "male":
+        if sex_value == "male":
             calories = 10 * weight + 6.25 * height - 5 * age + 5
-        else:
+        elif sex_value == "female":
             calories = 10 * weight + 6.25 * height - 5 * age - 161
+        else:
+            raise ValueError("Sex must be male or female")
 
         portions = round(calories / 600, 1)
 
         return {"calories": round(calories), "portion": portions}
 
-    except:
+    except Exception:
         return {"calories": 0, "portion": 0}
 
 
