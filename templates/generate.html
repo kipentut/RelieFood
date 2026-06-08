@@ -8,7 +8,6 @@
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/logo.png') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#2e9f6b">
-    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
 </head>
 
 <body class="page-bg">
@@ -389,7 +388,7 @@ function displayRecipe(recipe) {
     if (recipe.difficulty) metaHtml += `<span class="recipe-meta-item">🔥 ${recipe.difficulty}</span>`;
 
     const errorHtml = recipe.error ? `<div class="recipe-error">⚠️ ${recipe.error}</div>` : "";
-    const imageHtml = recipe.image ? `<div class="recipe-image-container"><img src="${recipe.image}" alt="Recipe image for ${recipe.title}" class="recipe-image" loading="lazy" crossorigin="anonymous"></div>` : "";
+    const imageHtml = recipe.image ? `<div class="recipe-image-container"><img src="${recipe.image}" alt="Recipe image for ${recipe.title}" class="recipe-image" loading="lazy"></div>` : "";
 
     const ingredientsHtml = Array.isArray(recipe.ingredients)
         ? recipe.ingredients.map(ing => `<li>${ing}</li>`).join("")
@@ -416,77 +415,8 @@ function displayRecipe(recipe) {
                 <h4>Instructions</h4>
                 <ol>${stepsHtml}</ol>
             </div>
-            <button type="button" class="download-recipe-btn" onclick="downloadRecipeImage(this)" data-html2canvas-ignore="true" aria-label="Download recipe as image">
-                Download
-            </button>
         </div>
     `;
-}
-
-function safeRecipeFileName(title) {
-    const fallback = "reliefood-recipe";
-    if (!title) return `${fallback}.png`;
-
-    const cleaned = title
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/^-+|-+$/g, "")
-        .slice(0, 60);
-
-    return `${cleaned || fallback}.png`;
-}
-
-async function waitForRecipeImages(recipeCard) {
-    const images = Array.from(recipeCard.querySelectorAll("img"));
-    await Promise.all(images.map(img => {
-        if (img.complete) return Promise.resolve();
-        return new Promise(resolve => {
-            img.addEventListener("load", resolve, { once: true });
-            img.addEventListener("error", resolve, { once: true });
-        });
-    }));
-}
-
-async function downloadRecipeImage(button) {
-    const recipeCard = button.closest(".recipe-card");
-    if (!recipeCard) return;
-
-    if (typeof html2canvas === "undefined") {
-        alert("Image download is still loading. Please try again in a moment.");
-        return;
-    }
-
-    const originalText = button.textContent;
-    button.textContent = "Saving...";
-    button.disabled = true;
-
-    try {
-        if (document.fonts?.ready) {
-            await document.fonts.ready;
-        }
-        await waitForRecipeImages(recipeCard);
-
-        const canvas = await html2canvas(recipeCard, {
-            backgroundColor: "#ffffff",
-            scale: Math.min(2, window.devicePixelRatio || 1),
-            useCORS: true,
-            allowTaint: false,
-            scrollX: 0,
-            scrollY: -window.scrollY,
-        });
-
-        const link = document.createElement("a");
-        const title = recipeCard.querySelector(".recipe-card-header h3")?.textContent;
-        link.download = safeRecipeFileName(title);
-        link.href = canvas.toDataURL("image/png");
-        link.click();
-    } catch (error) {
-        console.error("DOWNLOAD IMAGE ERROR:", error);
-        alert("Could not save the recipe image. Please try again.");
-    } finally {
-        button.textContent = originalText;
-        button.disabled = false;
-    }
 }
 
 /* RANDOM RECIPE */

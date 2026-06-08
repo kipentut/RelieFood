@@ -137,7 +137,6 @@ def generate_ai_recipe(user_input, leftover="", combine_mode="transform"):
     prompt_text = f"""
 You are a professional recipe writer. Create one unique, ingredient-driven cooking recipe inspired by common recipes online using only the ingredients given by the user.
 Use the ingredient descriptions exactly as provided. Do not add new ingredients except basic pantry seasonings like salt, pepper, oil, or butter if needed.
-If possible, make the recipe fit a common recipe found in Philippine cuisine (e.g. adobo, sinigang, etc.) or another cuisine relevant to the ingredients provided, but do not feel limited if the ingredients inspire a different type of dish.
 Create a recipe title based on real existing recipes that reflects the ingredients and write a short description of the finished dish.
 Write step-by-step instructions that clearly explain how to cook the dish using the specific ingredients given.
 
