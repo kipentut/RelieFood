@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/logo.png') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#2e9f6b">
+</head>
+
+<body class="page-bg">
+
+<div class="app-container">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <a href="/index" class="logo-link">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo-img">
+            <span class="logo-text">RelieFood</span>
+        </a>
+
+        <div class="menu-btn" onclick="openDrawer()">☰</div>
+    </div>
+
+    <!-- DRAWER MENU -->
+    <div class="drawer" id="drawerMenu">
+        <div class="drawer-header">
+            <div class="drawer-brand">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo-img">
+                <span>RelieFood</span>
+            </div>
+            <div class="close-btn" onclick="closeDrawer()">✕</div>
+        </div>
+
+        <div class="drawer-links">
+            <a href="/index">🍃 Home</a>
+            <a href="/generate" class="active">🍽 Recipe Generator</a>
+            <a href="/storage">📦 Food Storage Tips</a>
+            <a href="/infographic">📊 Did You Know?</a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="tag-content">
+            <div class="tag center generate-tag">AI-Assisted Recipe Generator</div>
+        </div>
+        <h2 class="center hero-heading">What’s In Your Kitchen?</h2>
+
+        <p class="center hero-copy">
+            Enter your ingredients and let our AI create delicious recipes.
+        </p>
+
+        <!-- INPUT CARD -->
+        <div class="form-card">
+
+            <h3>Add Your Ingredients</h3>
+            <p class="light-text">Enter each ingredient with quantity, unit, and name. Add each item to the list before generating.</p>
+
+            <div class="ingredient-input-grid">
+                <div class="input-group full-width">
+                    <label for="ingredientName">Ingredient Name *</label>
+                    <input type="text" id="ingredientName" placeholder="e.g., rice, garlic, onion">
+                </div>
+                <div class="input-group">
+                    <label for="quantity">Quantity *</label>
+                    <input type="text" id="quantity" placeholder="e.g., 100, 2" inputmode="decimal">
+                </div>
+                <div class="input-group">
+                    <label for="unit">Unit *</label>
+                    <select id="unit">
+                        <option value="" disabled selected>Select unit</option>
+                        <option value="grams">grams</option>
+                        <option value="kg">kg</option>
+                        <option value="ml">ml</option>
+                        <option value="liters">liters</option>
+                        <option value="cups">cups</option>
+                        <option value="tbsp">tbsp</option>
+                        <option value="tsp">tsp</option>
+                        <option value="pieces">pieces</option>
+                        <option value="cloves">cloves</option>
+                        <option value="whole">whole</option>
+                        <option value="slices">slices</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="button" id="addIngredientButton" class="primary-btn add-ingredient-btn">
+                + Add Ingredient to List
+            </button>
+
+            <div class="leftover-section">
+                <label for="leftoverMeal" class="leftover-label">Got a leftover meal in the fridge? <span class="optional">(optional)</span></label>
+                <input type="text" id="leftoverMeal" placeholder="e.g., adobo, sinigang, pasta," class="leftover-input">
+                <div id="combineModeSection" class="combine-mode-section" hidden>
+                    <span class="combine-mode-label">How to combine</span>
+                    <div class="combine-mode-toggle" role="radiogroup" aria-label="How to combine leftover meal">
+                        <input type="radio" id="combineTransform" name="combineMode" value="transform" checked>
+                        <label for="combineTransform">Transform the meal</label>
+                        <input type="radio" id="combineBeside" name="combineMode" value="beside">
+                        <label for="combineBeside">Cook beside it</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ingredient-list-card">
+                <div class="ingredient-list-header">
+                    <span>Ingredient list</span>
+                    <span id="ingredientCount">0 items</span>
+                </div>
+                <ul id="ingredientList" class="ingredient-list">
+                    <li class="empty-list">Add your first ingredient to begin.</li>
+                </ul>
+            </div>
+
+            <button class="primary-btn" onclick="generateRecipes()">
+                Generate Recipe
+            </button>
+
+        </div>
+
+        <!-- OUTPUT CARD -->
+        <div class="output-card">
+            <div id="output">
+                <div class="no-recipe">
+                    🍳
+                    <p>No recipes yet</p>
+                    <span>Add ingredients and click “Generate Recipes”.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let ingredientItems = [];
+const allUnitOptions = [
+    { value: "grams", label: "grams" },
+    { value: "kg", label: "kg" },
+    { value: "ml", label: "ml" },
+    { value: "liters", label: "liters" },
+    { value: "cups", label: "cups" },
+    { value: "tbsp", label: "tbsp" },
+    { value: "tsp", label: "tsp" },
+    { value: "pieces", label: "pieces" },
+    { value: "cloves", label: "cloves" },
+    { value: "whole", label: "whole" },
+    { value: "slices", label: "slices" }
+];
+const riceUnitOptions = [
+    { value: "grams", label: "grams" },
+    { value: "kg", label: "kg" },
+    { value: "cup", label: "cup" }
+];
+
+function getAvailableUnitsForIngredient(name) {
+    if (!name) {
+        return allUnitOptions;
+    }
+    const normalized = name.trim().toLowerCase();
+    if (normalized === "rice" || normalized.includes(" rice") || normalized.includes("rice ")) {
+        return riceUnitOptions;
+    }
+    return allUnitOptions;
+}
+
+function updateUnitOptions() {
+    const ingredientName = document.getElementById("ingredientName").value;
+    const unitSelect = document.getElementById("unit");
+    const selectedValue = unitSelect.value;
+    const optionsToShow = getAvailableUnitsForIngredient(ingredientName);
+
+    unitSelect.innerHTML = `<option value="" disabled selected>Select unit</option>`;
+    optionsToShow.forEach(option => {
+        const isSelected = option.value === selectedValue ? "selected" : "";
+        unitSelect.innerHTML += `<option value="${option.value}" ${isSelected}>${option.label}</option>`;
+    });
+};
+
+/* MENU */
+function openDrawer() {
+    document.getElementById("drawerMenu").classList.add("open");
+}
+
+function closeDrawer() {
+    document.getElementById("drawerMenu").classList.remove("open");
+}
+
+function formatIngredient(quantity, unit, name) {
+    const trimmedUnit = unit.trim();
+    const trimmedName = name.trim();
+    return `${quantity.trim()}${trimmedUnit ? ` ${trimmedUnit}` : ""} ${trimmedName}`.trim();
+}
+
+function filterQuantityInput(event) {
+    const input = event.target;
+    let cleaned = input.value.replace(/[^0-9.]/g, "");
+    const parts = cleaned.split('.');
+    if (parts.length > 2) {
+        cleaned = parts[0] + '.' + parts.slice(1).join('');
+    }
+    if (cleaned !== input.value) {
+        input.value = cleaned;
+    }
+}
+
+function preventInvalidQuantityKey(event) {
+    const allowedKeys = [
+        'Backspace', 'Delete', 'Tab', 'ArrowLeft', 'ArrowRight', 'Home', 'End',
+    ];
+    if (allowedKeys.includes(event.key)) {
+        return;
+    }
+    if (event.key === '.' && event.target.value.includes('.')) {
+        event.preventDefault();
+        return;
+    }
+    if (!/^[0-9.]$/.test(event.key)) {
+        event.preventDefault();
+    }
+}
+
+function renderIngredientList() {
+    const listEl = document.getElementById("ingredientList");
+    const countEl = document.getElementById("ingredientCount");
+
+    if (!ingredientItems.length) {
+        listEl.innerHTML = `<li class="empty-list">Add your first ingredient to begin.</li>`;
+        countEl.textContent = "0 items";
+        return;
+    }
+
+    countEl.textContent = `${ingredientItems.length} item${ingredientItems.length === 1 ? "" : "s"}`;
+
+    listEl.innerHTML = ingredientItems.map((item, index) => {
+        return `
+            <li class="ingredient-list-item">
+                <div class="ingredient-list-item-info">
+                    <span>${item.quantity}</span>
+                    <span>${item.unit}</span>
+                    <span>${item.name}</span>
+                </div>
+                <div class="ingredient-list-item-actions">
+                    <button type="button" class="edit-ingredient-btn" onclick="editIngredient(${index})">Edit</button>
+                    <button type="button" class="remove-ingredient-btn" onclick="removeIngredient(${index})">Remove</button>
+                </div>
+            </li>
+        `;
+    }).join("");
+}
+
+function clearIngredientInputs() {
+    document.getElementById("quantity").value = "";
+    document.getElementById("ingredientName").value = "";
+    updateUnitOptions();
+    document.getElementById("quantity").focus();
+}
+
+function addIngredient() {
+    const quantity = document.getElementById("quantity").value;
+    const unit = document.getElementById("unit").value;
+    const ingredientName = document.getElementById("ingredientName").value;
+
+    if (!ingredientName.trim() || !quantity.trim() || !unit) {
+        alert("Please enter ingredient name, quantity, and select a unit.");
+        return;
+    }
+
+    const normalizedQuantity = quantity.trim();
+    const quantityValue = Number(normalizedQuantity);
+    if (!Number.isFinite(quantityValue) || quantityValue <= 0) {
+        alert("Quantity must be a valid positive number.");
+        return;
+    }
+
+    ingredientItems.push({
+        name: ingredientName.trim(),
+        quantity: normalizedQuantity,
+        unit: unit.trim(),
+    });
+    renderIngredientList();
+    clearIngredientInputs();
+}
+
+function removeIngredient(index) {
+    ingredientItems.splice(index, 1);
+    renderIngredientList();
+}
+
+function editIngredient(index) {
+    const item = ingredientItems[index];
+    document.getElementById("ingredientName").value = item.name;
+    document.getElementById("quantity").value = item.quantity;
+    updateUnitOptions();
+    document.getElementById("unit").value = item.unit;
+    ingredientItems.splice(index, 1);
+    renderIngredientList();
+    document.getElementById("quantity").focus();
+}
+
+function updateCombineModeVisibility() {
+    const leftoverMeal = document.getElementById("leftoverMeal").value.trim();
+    const combineModeSection = document.getElementById("combineModeSection");
+    combineModeSection.hidden = !leftoverMeal;
+}
+
+document.getElementById("addIngredientButton").addEventListener("click", addIngredient);
+document.getElementById("ingredientName").addEventListener("input", updateUnitOptions);
+document.getElementById("quantity").addEventListener("input", filterQuantityInput);
+document.getElementById("quantity").addEventListener("keydown", preventInvalidQuantityKey);
+document.getElementById("leftoverMeal").addEventListener("input", updateCombineModeVisibility);
+window.addEventListener("load", () => {
+    updateUnitOptions();
+    updateCombineModeVisibility();
+});
+
+/* GENERATE */
+async function generateRecipes() {
+    if (!ingredientItems.length) {
+        alert("Add at least one ingredient to the list before generating.");
+        return;
+    }
+
+    const ingredients = ingredientItems
+        .map(item => formatIngredient(item.quantity, item.unit, item.name))
+        .join(", ");
+    const leftoverMeal = document.getElementById("leftoverMeal").value.trim();
+    const combineMode = leftoverMeal
+        ? document.querySelector("input[name='combineMode']:checked")?.value || "transform"
+        : "";
+    const outputEl = document.getElementById("output");
+    const outputCard = document.querySelector(".output-card");
+
+    outputCard?.classList.add("loading");
+    outputEl.innerHTML = `
+        <div class="loading-state">
+            <div class="spinner"></div>
+            <div class="dot-loader">Generating recipe</div>
+        </div>
+    `;
+
+    try {
+        const res = await fetch("/generate_recipe", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ ingredients, leftover: leftoverMeal, combine_mode: combineMode })
+        });
+
+        if (!res.ok) {
+            throw new Error("Server error");
+        }
+
+        const recipe = await res.json();
+        console.log("RESPONSE DATA:", recipe);
+        displayRecipe(recipe);
+    } catch (err) {
+        console.error("FETCH ERROR:", err);
+        outputEl.innerHTML = `
+            <p style="color:red;">
+                Error generating recipe. Try again.
+            </p>
+        `;
+        document.querySelector(".output-card")?.classList.remove("loading");
+    }
+}
+
+function displayRecipe(recipe) {
+    document.querySelector(".output-card")?.classList.remove("loading");
+
+    if (!recipe || !recipe.title) {
+        document.getElementById("output").innerHTML = `
+            <div class="no-recipe">
+                🍳
+                <p>No recipe available</p>
+                <span>Try adding ingredients and generating again.</span>
+            </div>
+        `;
+        return;
+    }
+
+    let metaHtml = "";
+    if (recipe.time) metaHtml += `<span class="recipe-meta-item">⏱ ${recipe.time}</span>`;
+    if (recipe.servings) metaHtml += `<span class="recipe-meta-item">👥 ${recipe.servings}</span>`;
+    if (recipe.difficulty) metaHtml += `<span class="recipe-meta-item">🔥 ${recipe.difficulty}</span>`;
+
+    const errorHtml = recipe.error ? `<div class="recipe-error">⚠️ ${recipe.error}</div>` : "";
+    const imageHtml = recipe.image ? `<div class="recipe-image-container"><img src="${recipe.image}" alt="Recipe image for ${recipe.title}" class="recipe-image" loading="lazy"></div>` : "";
+
+    const ingredientsHtml = Array.isArray(recipe.ingredients)
+        ? recipe.ingredients.map(ing => `<li>${ing}</li>`).join("")
+        : "";
+
+    const stepsHtml = Array.isArray(recipe.steps)
+        ? recipe.steps.map(step => `<li>${step}</li>`).join("")
+        : "";
+
+    document.getElementById("output").innerHTML = `
+        <div class="recipe-card">
+            <div class="recipe-card-header">
+                <h3>${recipe.title}</h3>
+                <p class="recipe-description">${recipe.description || "A recipe created from your ingredients."}</p>
+            </div>
+            ${imageHtml}
+            ${errorHtml}
+            <div class="recipe-meta">${metaHtml}</div>
+            <div class="recipe-section">
+                <h4>Ingredients</h4>
+                <ul>${ingredientsHtml}</ul>
+            </div>
+            <div class="recipe-section">
+                <h4>Instructions</h4>
+                <ol>${stepsHtml}</ol>
+            </div>
+        </div>
+    `;
+}
+
+/* RANDOM RECIPE */
+function clickFeedback(el) {
+    if (!el) return;
+    el.classList.add("click-feedback");
+    window.setTimeout(() => el.classList.remove("click-feedback"), 220);
+}
+
+if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+    navigator.serviceWorker.register('{{ url_for('static', filename='service-worker.js') }}')
+    .then(() => console.log("Service Worker Registered"))
+    .catch(err => console.warn("Service Worker registration failed:", err));
+} else {
+    console.warn("Service Worker not registered: unsupported origin or protocol.");
+}
+
+</script>
+
+</body>
+</html>

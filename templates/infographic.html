@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Waste</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/logo.png') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#2e9f6b">
+</head>
+
+<body class="page-bg">
+
+<div class="app-container">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <a href="/index" class="logo-link">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo-img">
+            <span class="logo-text">RelieFood</span>
+        </a>
+
+        <div class="menu-btn" onclick="openDrawer()">☰</div>
+    </div>
+
+    <!-- DRAWER MENU -->
+    <div class="drawer" id="drawerMenu">
+        <div class="drawer-header">
+            <div class="drawer-brand">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo-img">
+                <span>RelieFood</span>
+            </div>
+            <div class="close-btn" onclick="closeDrawer()">✕</div>
+        </div>
+
+        <div class="drawer-links">
+            <a href="/index">🍃 Home</a>
+            <a href="/generate">🍽 Recipe Generator</a>
+            <a href="/storage">📦 Food Storage Tips</a>
+            <a href="/infographic" class="active">📊 Did You Know?</a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+        <!-- ===== FOOD WASTE CRISIS ===== -->
+        <h2 class="center hero-heading">The Food Waste Crisis</h2>
+
+        <p class="center hero-copy">
+            Every day, millions of tons of food are wasted while people go hungry.
+        </p>
+
+        <!-- CARD 1 -->
+        <div class="info-highlight red">
+            <div class="highlight-icon">📉</div>
+            <div>
+                <h3>19%</h3>
+                <p>of global food production is wasted annually</p>
+                <small>Source: United Nations, 2024</small>
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="info-highlight orange">
+            <div class="highlight-icon">👥</div>
+            <div>
+                <h3>783M</h3>
+                <p>people affected by hunger in 2022</p>
+                <small>Source: UNEP, 2024</small>
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="info-highlight yellow">
+            <div class="highlight-icon">🍽</div>
+            <div>
+                <h3>1B+</h3>
+                <p>meals wasted daily across all households</p>
+                <small>Source: UNEP, 2024</small>
+            </div>
+        </div>
+
+        <div style="height: 25px;"></div>
+
+        <!-- ===== COMMON WASTED FOOD SECTION ===== -->
+        <h2 class="hero-heading">Common Wasted Foods in the Philippines</h2>
+
+        <!-- IMAGE -->
+        <img src="{{ url_for('static', filename='images/foodwaste.png') }}" class="app-image">
+
+        <!-- DESCRIPTION -->
+        <p>
+            Studies analyzing household plate waste in the Philippines have identified
+            specific food items that are most frequently wasted:
+        </p>
+
+        <!-- RICE -->
+        <div class="info-card">
+            <div class="icon-box">🍚</div>
+            <div class="text-box">
+                <h3>Rice</h3>
+                <p>
+                    Accounts for a significant portion of household food waste due to over-preparation.
+                </p>
+            </div>
+        </div>
+
+        <!-- VEGETABLES -->
+        <div class="info-card">
+            <div class="icon-box">🥬</div>
+            <div class="text-box">
+                <h3>Vegetables</h3>
+                <p>
+                    Often spoil before use due to forgotten storage or lack of meal planning.
+                </p>
+            </div>
+        </div>
+
+        <!-- MEAT -->
+        <div class="info-card">
+            <div class="icon-box">🍖</div>
+            <div class="text-box">
+                <h3>Meat</h3>
+                <p>
+                    Partially used meat products remain unused after meal preparation.
+                </p>
+            </div>
+        </div>
+
+        <!-- SOURCE -->
+        <p class="source">
+            Source: Angeles-Agdeppa et al., 2023
+        </p>
+
+    </div>
+</div>
+
+<script>
+function openDrawer() {
+    document.getElementById("drawerMenu").classList.add("open");
+}
+
+function closeDrawer() {
+    document.getElementById("drawerMenu").classList.remove("open");
+}
+
+if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+    navigator.serviceWorker.register('{{ url_for('static', filename='service-worker.js') }}')
+    .then(() => console.log("Service Worker Registered"))
+    .catch(err => console.warn("Service Worker registration failed:", err));
+} else {
+    console.warn("Service Worker not registered: unsupported origin or protocol.");
+}
+
+</script>
+
+</body>
+</html>

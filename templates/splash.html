@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RelieFood</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/logo.png') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#2e9f6b">
+</head>
+
+<body class="page-bg">
+
+<div class="splash-screen" id="splashScreen">
+    <div class="splash-content">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" class="splash-logo">
+        <div class="splash-text">RelieFood</div>
+    </div>
+</div>
+
+<script>
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        const splash = document.getElementById('splashScreen');
+        splash.style.opacity = '0';
+        splash.style.transform = 'scale(0.9)';
+
+        setTimeout(function() {
+            window.location.href = '/index';
+        }, 600);
+    }, 2000);
+});
+
+if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+    navigator.serviceWorker.register('{{ url_for('static', filename='service-worker.js') }}')
+    .then(() => console.log("Service Worker Registered"))
+    .catch(err => console.warn("Service Worker registration failed:", err));
+} else {
+    console.warn("Service Worker not registered: unsupported origin or protocol.");
+}
+
+</script>
+
+</body>
+</html>

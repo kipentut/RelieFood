@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/logo.png') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#2e9f6b">
+</head>
+
+<body class="page-bg">
+
+<div class="app-container">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <a href="/index" class="logo-link">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo-img">
+            <span class="logo-text">RelieFood</span>
+        </a>
+
+        <div class="menu-btn" onclick="openDrawer()">☰</div>
+    </div>
+
+    <!-- DRAWER MENU -->
+    <div class="drawer" id="drawerMenu">
+        <div class="drawer-header">
+            <div class="drawer-brand">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo-img">
+                <span>RelieFood</span>
+            </div>
+            <div class="close-btn" onclick="closeDrawer()">✕</div>
+        </div>
+
+        <div class="drawer-links">
+            <a href="/index" class="active">🍃 Home</a>
+            <a href="/generate">🍽 Recipe Generator</a>
+            <a href="/storage">📦 Food Storage Tips</a>
+            <a href="/infographic">📊 Did You Know?</a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content hero-section">
+
+        <!-- TAG -->
+        <div class="tag">Supporting UN SDG 12</div>
+
+        <!-- TITLE -->
+        <h2 class="hero-title hero-heading">
+            Transform Your Leftovers Into Delicious Meals
+        </h2>
+
+        <!-- TEXT -->
+        <p class="hero-copy">
+            Stop wasting food. Start creating amazing recipes with what you already have in your kitchen.
+        </p>
+
+        <!-- IMAGE -->
+        <img src="{{ url_for('static', filename='images/food.png') }}" class="hero-image">
+
+        <!-- BUTTONS -->
+        <div class="button-container">
+            <div class="index-btn">
+                <a href="/generate" class="index-generate">
+                    <button class="primary-btn">Start Generating Recipes →</button>
+                </a>
+            </div>
+            <div class="index-btn">
+                <a href="/infographic" class="index-info">
+                    <button class="outline-btn">Learn More</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function openDrawer() {
+    document.getElementById("drawerMenu").classList.add("open");
+}
+
+function closeDrawer() {
+    document.getElementById("drawerMenu").classList.remove("open");
+}
+
+if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+    navigator.serviceWorker.register('{{ url_for('static', filename='service-worker.js') }}')
+    .then(() => console.log("Service Worker Registered"))
+    .catch(err => console.warn("Service Worker registration failed:", err));
+} else {
+    console.warn("Service Worker not registered: unsupported origin or protocol.");
+}
+
+</script>
+
+</body>
+</html>
