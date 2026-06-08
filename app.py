@@ -4,23 +4,52 @@ import requests
 from dotenv import load_dotenv
 from google import genai
 from flask_cors import CORS
+from threading import Lock
 
 app = Flask(__name__)
 CORS(app)
 app.secret_key = "supersecretkey"
 load_dotenv()
 
-# GEMINI CLIENT
-API_KEY = os.environ.get("GOOGLE_API_KEY")
+# GEMINI CLIENTS
+API_KEY_NAMES = [
+    "GOOGLE_API_KEY",
+    "GOOGLE_API_KEY_2",
+    "GOOGLE_API_KEY_3",
+    "GOOGLE_API_KEY_4",
+    "GOOGLE_API_KEY_5",
+]
+GOOGLE_API_KEYS = [
+    (key_name, os.environ.get(key_name, "").strip())
+    for key_name in API_KEY_NAMES
+    if os.environ.get(key_name, "").strip()
+]
 UNSPLASH_ACCESS_KEY = os.environ.get("UNSPLASH_ACCESS_KEY")
-client = None
-if API_KEY:
-    client = genai.Client(api_key=API_KEY)
+gemini_clients = [(key_name, genai.Client(api_key=api_key)) for key_name, api_key in GOOGLE_API_KEYS]
+client = gemini_clients[0][1] if gemini_clients else None
+gemini_rotation_index = 0
+gemini_rotation_lock = Lock()
+
+if gemini_clients:
+    print(f"Gemini clients loaded: {len(gemini_clients)}")
 else:
-    print("Warning: GOOGLE_API_KEY not set. Gemini client disabled; AI features will use fallback responses.")
+    print("Warning: no GOOGLE_API_KEY values set. Gemini client disabled; AI features will use fallback responses.")
 
 if not UNSPLASH_ACCESS_KEY:
     print("Warning: UNSPLASH_ACCESS_KEY not set. Recipe images will not be loaded from Unsplash.")
+
+
+def get_rotated_gemini_clients():
+    global gemini_rotation_index
+
+    if not gemini_clients:
+        return []
+
+    with gemini_rotation_lock:
+        start_index = gemini_rotation_index % len(gemini_clients)
+        gemini_rotation_index = (gemini_rotation_index + 1) % len(gemini_clients)
+
+    return gemini_clients[start_index:] + gemini_clients[:start_index]
 
 
 def search_unsplash_image(query):
@@ -79,12 +108,14 @@ def generate_ai_recipe(user_input, leftover="", combine_mode="transform"):
         else:
             leftover_text = f"\n\nThe user also has a leftover meal available: {leftover}. Use the user's chosen combine style: Transform the meal. Use the listed ingredients to upgrade, reinvent, or refresh the leftover meal into one cohesive dish."
 
+    available_clients = get_rotated_gemini_clients()
+
     # If no API key / client available, return a safe fallback without calling Gemini
-    if client is None:
+    if not available_clients:
         print("AI skipped: no API key available, returning fallback recipe")
         recipe_title = f"Recipe with {', '.join(ingredients[:3])}"
         fallback_recipe = {
-            "error": "AI unavailable: no valid API key found. Please set GOOGLE_API_KEY in .env.",
+            "error": "AI unavailable: no valid API key found. Please set at least one GOOGLE_API_KEY value in .env.",
             "title": recipe_title,
             "description": f"A simple dish based on your ingredient list.{leftover_action}",
             "servings": "2-3",
@@ -103,8 +134,7 @@ def generate_ai_recipe(user_input, leftover="", combine_mode="transform"):
             fallback_recipe["image"] = image_url
         return fallback_recipe
 
-    try:
-        prompt_text = f"""
+    prompt_text = f"""
 You are a professional recipe writer. Create one unique, ingredient-driven cooking recipe inspired by common recipes online using only the ingredients given by the user.
 Use the ingredient descriptions exactly as provided. Do not add new ingredients except basic pantry seasonings like salt, pepper, oil, or butter if needed.
 Create a recipe title based on real existing recipes that reflects the ingredients and write a short description of the finished dish.
@@ -114,65 +144,71 @@ Ingredients:
 {ingredient_text}{leftover_text}
 """
 
-        # Using config to enforce native JSON output matching your schema
-        config = types.GenerateContentConfig(
-            response_mime_type="application/json",
-            response_schema={
-                "type": "OBJECT",
-                "properties": {
-                    "title": {"type": "STRING"},
-                    "description": {"type": "STRING"},
-                    "servings": {"type": "STRING"},
-                    "time": {"type": "STRING"},
-                    "difficulty": {"type": "STRING"},
-                    "ingredients": {"type": "ARRAY", "items": {"type": "STRING"}},
-                    "steps": {"type": "ARRAY", "items": {"type": "STRING"}},
-                    "image": {"type": "STRING"},
-                },
-                "required": ["title", "description", "servings", "time", "difficulty", "ingredients", "steps"],
+    # Using config to enforce native JSON output matching your schema
+    config = types.GenerateContentConfig(
+        response_mime_type="application/json",
+        response_schema={
+            "type": "OBJECT",
+            "properties": {
+                "title": {"type": "STRING"},
+                "description": {"type": "STRING"},
+                "servings": {"type": "STRING"},
+                "time": {"type": "STRING"},
+                "difficulty": {"type": "STRING"},
+                "ingredients": {"type": "ARRAY", "items": {"type": "STRING"}},
+                "steps": {"type": "ARRAY", "items": {"type": "STRING"}},
+                "image": {"type": "STRING"},
             },
-        )
+            "required": ["title", "description", "servings", "time", "difficulty", "ingredients", "steps"],
+        },
+    )
 
-        # FIXED MODEL NAME & Added config
-        response = client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=prompt_text,
-            config=config
-        )
+    last_error = None
+    for key_name, active_client in available_clients:
+        try:
+            print(f"Trying Gemini with {key_name}")
+            response = active_client.models.generate_content(
+                model="gemini-2.5-flash",
+                contents=prompt_text,
+                config=config
+            )
 
-        print("\nAI RAW OUTPUT:\n", response.text)
-        
-        # Because we used response_mime_type, response.text is guaranteed to be clean JSON
-        recipe = json.loads(response.text)
-        recipe_image = search_unsplash_image(recipe.get("title"))
-        if recipe_image:
-            recipe["image"] = recipe_image
-        return recipe
+            print("\nAI RAW OUTPUT:\n", response.text)
 
-    except Exception as e:
-        print("AI ERROR:", e)
-        print("Falling back to a recipe using the provided ingredients.")
+            # Because we used response_mime_type, response.text is guaranteed to be clean JSON
+            recipe = json.loads(response.text)
+            recipe_image = search_unsplash_image(recipe.get("title"))
+            if recipe_image:
+                recipe["image"] = recipe_image
+            return recipe
 
-        recipe_title = "AI Generated Recipe"
-        image_url = search_unsplash_image(recipe_title)
-        fallback_recipe = {
-            "error": f"AI unavailable: {str(e)}",
-            "title": recipe_title,
-            "description": f"A simple recipe created from your ingredients.{leftover_action}",
-            "servings": "2-3",
-            "time": "20 mins",
-            "difficulty": "Easy",
-            "ingredients": ingredients + ([f"leftover {leftover}"] if leftover else []),
-            "steps": [
-                f"Prepare the ingredients: {', '.join(ingredients)}.",
-                "Cook the ingredients together with basic seasoning until everything is tender and flavors are combined.",
-                leftover_action.strip() if leftover_action else "Taste and adjust seasoning as needed.",
-                "Serve warm and enjoy your meal."
-            ]
-        }
-        if image_url:
-            fallback_recipe["image"] = image_url
-        return fallback_recipe
+        except Exception as e:
+            last_error = e
+            print(f"AI ERROR with {key_name}:", e)
+            print("Trying next Gemini key if available.")
+
+    print("All Gemini keys failed. Falling back to a recipe using the provided ingredients.")
+
+    recipe_title = "AI Generated Recipe"
+    image_url = search_unsplash_image(recipe_title)
+    fallback_recipe = {
+        "error": f"AI unavailable: {str(last_error)}",
+        "title": recipe_title,
+        "description": f"A simple recipe created from your ingredients.{leftover_action}",
+        "servings": "2-3",
+        "time": "20 mins",
+        "difficulty": "Easy",
+        "ingredients": ingredients + ([f"leftover {leftover}"] if leftover else []),
+        "steps": [
+            f"Prepare the ingredients: {', '.join(ingredients)}.",
+            "Cook the ingredients together with basic seasoning until everything is tender and flavors are combined.",
+            leftover_action.strip() if leftover_action else "Taste and adjust seasoning as needed.",
+            "Serve warm and enjoy your meal."
+        ]
+    }
+    if image_url:
+        fallback_recipe["image"] = image_url
+    return fallback_recipe
 
 # ---------- ROUTES ----------
 @app.route("/")
