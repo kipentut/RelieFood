@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portion Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/logo.png') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#2e9f6b">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <a href="/index" class="logo-link">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo-img">
+            <span class="logo-text">RelieFood</span>
+        </a>
+
+        <div class="menu-btn" onclick="openDrawer()">☰</div>
+    </div>
+
+    <!-- DRAWER MENU -->
+    <div class="drawer" id="drawerMenu">
+        <div class="drawer-header">
+            <div class="drawer-brand">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo-img">
+                <span>RelieFood</span>
+            </div>
+            <div class="close-btn" onclick="closeDrawer()">✕</div>
+        </div>
+
+        <div class="drawer-links">
+            <a href="/index">🍃 Home</a>
+            <a href="/generate">🍽 Recipe Generator</a>
+            <a href="/storage">📦 Food Storage Tips</a>
+            <a href="/infographic">📊 Did You Know?</a>
+            <a href="/portion" class="active">⚖️ Portion Calculator</a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+        <h2 class="center">Portion Size Calculator</h2>
+
+        <p class="center">
+            Get an estimate of your recommended food portion per meal.
+        </p>
+
+        <div class="form-card">
+
+            <input type="number" id="age" placeholder="Age">
+            <input type="text" id="sex" placeholder="Sex (male/female)">
+            <input type="number" id="height" placeholder="Height (cm)">
+            <input type="number" id="weight" placeholder="Weight (kg)">
+
+            <button class="primary-btn" onclick="calculatePortion()">
+                Calculate Portion
+            </button>
+
+            <div id="portionOutput"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function openDrawer() {
+    document.getElementById("drawerMenu").classList.add("open");
+}
+
+function closeDrawer() {
+    document.getElementById("drawerMenu").classList.remove("open");
+}
+
+async function calculatePortion() {
+    const age = document.getElementById("age").value;
+    const sex = document.getElementById("sex").value;
+    const height = document.getElementById("height").value;
+    const weight = document.getElementById("weight").value;
+
+    const res = await fetch("/calculate_portion", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ age, sex, height, weight })
+    });
+
+    const data = await res.json();
+
+    document.getElementById("portionOutput").innerHTML = `
+        <p><b>Estimated Calories:</b> ${data.calories} kcal/day</p>
+        <p><b>Recommended Portion:</b> ${data.portion} servings</p>
+    `;
+}
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/static/service-worker.js')
+    .then(() => console.log("Service Worker Registered"));
+}
+
+</script>
+
+</body>
+</html>
